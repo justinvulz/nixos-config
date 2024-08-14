@@ -4,6 +4,15 @@
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true; # so that gtk works properly
+    config = rec {
+      modifier = "Mod4";
+      # Use kitty as default terminal
+      terminal = "kitty"; 
+      startup = [
+        # Launch Firefox on start
+        {command = "firefox";}
+      ];
+    };
     extraPackages = with pkgs; [
       swaylock
       swayidle
@@ -16,13 +25,13 @@
       alacritty # Alacritty is the default terminal in the config
       dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
     ];
-    extraSessionCommands = ''
-      export SDL_VIDEODRIVER=wayland
-      export QT_QPA_PLATFORM=wayland
-      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-      export _JAVA_AWT_WM_NONREPARENTING=1
-      export MOZ_ENABLE_WAYLAND=1
-    '';
+    # extraSessionCommands = ''
+    #   export SDL_VIDEODRIVER=wayland
+    #   export QT_QPA_PLATFORM=wayland
+    #   export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+    #   export _JAVA_AWT_WM_NONREPARENTING=1
+    #   export MOZ_ENABLE_WAYLAND=1
+    # '';
   };
   programs.waybar.enable = true;
 
