@@ -53,6 +53,7 @@
     variant = "";
   };
 
+  # Enable the Hyprland window manager.
   programs.hyprland.enable = true;
 
   # Enable CUPS to print documents.
