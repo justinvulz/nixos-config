@@ -98,7 +98,7 @@
   environment.pathsToLink = [ "/share/zsh" ];
   
   # QT
-  programs.qt5ct.enable = true;
+  # programs.qt5ct.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
