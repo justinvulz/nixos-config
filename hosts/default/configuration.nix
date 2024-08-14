@@ -53,15 +53,8 @@
     variant = "";
   };
 
-  # Enable the Hyprland window manager.
-  programs.hyprland.enable = true;
-  # programs.hyprland.xwayland.enable = true;
-
-  # xserver something
-  # services.xserver = {
-  #   enable = true;
-  #   displayManager.sddm.enable = true;
-  # };
+  # Enable polkit for allowing unprivileged users to run administrative tasks.
+  security.polkit.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -83,7 +76,7 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
+  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.justin = {
