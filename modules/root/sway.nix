@@ -4,15 +4,6 @@
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true; # so that gtk works properly
-    config = rec {
-      modifier = "Mod4";
-      # Use kitty as default terminal
-      terminal = "kitty"; 
-      startup = [
-        # Launch Firefox on start
-        {command = "firefox";}
-      ];
-    };
     extraPackages = with pkgs; [
       swaylock
       swayidle
@@ -34,6 +25,6 @@
     # '';
   };
   programs.waybar.enable = true;
-
+  services.gnome.gnome-keyring.enable = true;
 
 }
