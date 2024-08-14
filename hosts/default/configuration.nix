@@ -1,5 +1,5 @@
 
-{ config, pkgs, ... }:
+{ config, pkgs,lib, inputs, ... }:
 
 {
   imports =
@@ -52,6 +52,9 @@
     layout = "us";
     variant = "";
   };
+
+  programs.hyprland.enable = true;
+  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
