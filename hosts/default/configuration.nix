@@ -55,6 +55,7 @@
 
   # Enable the Hyprland window manager.
   programs.hyprland.enable = true;
+  programs.hyprland.xwayland.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
