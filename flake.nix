@@ -16,13 +16,13 @@
     nixosConfigurations = {
       justin-nixos = lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./configuration.nix ];
+        modules = [ ./hosts/default/configuration.nix ];
       };
     };
     homeConfigurations = {
       justin = home-manager.lib.homeManagerConfiguration {
         inherit pkgs; 
-	modules = [ ./home.nix ];
+	modules = [ .hosts/default/home.nix ];
       };
     };
   };
