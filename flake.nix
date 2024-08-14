@@ -22,7 +22,7 @@
     homeConfigurations = {
       justin = home-manager.lib.homeManagerConfiguration {
         inherit pkgs; 
-	modules = [ .hosts/default/home.nix ];
+	modules = [ ./hosts/default/home.nix ];
       };
     };
   };
