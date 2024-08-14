@@ -4,6 +4,7 @@
   imports = [
     ./../../modules/home-manager/git.nix
     ./../../modules/home-manager/zsh.nix
+    ./../../modules/home-manager/hyprland.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -79,25 +80,4 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   
-  wayland.windowManager.hyprland = {
-    enable = true;
-    package = pkgs.hyprland;
-    xwayland.enable = true;
-    system.enable = true;
-  };
-  wayland.windowManager.hyprland.settings = {
-    decoration = {
-      shadow_offset = "0 5";
-      "col.shadow" = "rgba(00000099)";
-    };
-
-    "$mod" = "SUPER";
-
-    bindm = [
-      # mouse movements
-      "$mod, mouse:272, movewindow"
-      "$mod, mouse:273, resizewindow"
-      "$mod ALT, mouse:272, resizewindow"
-    ];
-  };
 }

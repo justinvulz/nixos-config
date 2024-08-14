@@ -6,7 +6,7 @@
     userName = lib.mkDefault "justinChen";
     userEmail = lib.mkDefault "justin.chen@thinktrace.com";
     extraConfig = {
-      init.defaultBranch = lib.mkDefault "main";
+      init.defaultBranch = "main";
     };
   };
 }

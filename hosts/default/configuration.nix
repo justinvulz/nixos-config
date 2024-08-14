@@ -41,11 +41,11 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -56,6 +56,12 @@
   # Enable the Hyprland window manager.
   programs.hyprland.enable = true;
   programs.hyprland.xwayland.enable = true;
+
+  # xserver something
+  services.xserver = {
+    enable = true;
+    displayManager.sddm.enable = true;
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -77,7 +83,7 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.justin = {
