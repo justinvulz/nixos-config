@@ -5,6 +5,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
+      ./../../modules/root/sway.nix
     ];
 
   # Bootloader.
@@ -96,7 +97,9 @@
   users.defaultUserShell = pkgs.zsh;
   environment.pathsToLink = [ "/share/zsh" ];
   
-  
+  # QT
+  programs.qt5ct.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
