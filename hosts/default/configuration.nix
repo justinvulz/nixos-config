@@ -103,6 +103,7 @@
     git
     home-manager
     neofetch
+    kitty
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
