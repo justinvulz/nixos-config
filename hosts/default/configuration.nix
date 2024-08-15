@@ -3,10 +3,10 @@
 
 {
   imports =
-    [ 
-      ./hardware-configuration.nix
-      ./../../modules/root/sway.nix
-    ];
+  [ 
+    ./hardware-configuration.nix
+    ./../../modules/root/sway.nix
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -41,12 +41,6 @@
     LC_TIME = "zh_TW.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -98,7 +92,7 @@
   environment.pathsToLink = [ "/share/zsh" ];
   
   # QT
-  # programs.qt5ct.enable = true;
+  programs.qt5ct.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -112,10 +106,6 @@
     home-manager
     neofetch
     kitty
-    grim # screenshot functionality
-    slurp # screenshot functionality
-    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    mako # notification system developed by swaywm maintainer
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
