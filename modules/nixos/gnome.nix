@@ -13,12 +13,12 @@
   services.gnome.core-utilities.enable = false;
   environment.gnome.excludePackages = [ pkgs.gnome-tour ];
   services.xserver.excludePackages = [ pkgs.xterm ]; 
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Materia-dark";
-      package = pkgs.materia-theme;
-    };
-  };
+  # gtk = {
+  #   enable = true;
+  #   theme = {
+  #     name = "Materia-dark";
+  #     package = pkgs.materia-theme;
+  #   };
+  # };
 
 }
