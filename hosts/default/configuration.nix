@@ -84,6 +84,9 @@
     ];
   };
 
+  # uninstall the nixos documentation
+  documentation.nixos.enable = false;
+
   # Install firefox.
   programs.firefox.enable = true;
 

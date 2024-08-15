@@ -11,4 +11,6 @@
 
   # Disable all default GNOME applications.
   services.gnome.core-utilities.enable = false;
+  servicesenvironment.gnome.excludePackages = [ pkgs.gnome-tour ];
+  services.xserver.excludePackages = [ pkgs.xterm ]; 
 }
