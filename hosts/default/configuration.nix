@@ -5,7 +5,8 @@
   imports =
   [ 
     ./hardware-configuration.nix
-    ./../../modules/root/sway.nix
+    # ./../../modules/nixos/sway.nix
+    ./../../modules/nixos/gnome.nix
   ];
 
   # Bootloader.
@@ -91,9 +92,6 @@
   users.defaultUserShell = pkgs.zsh;
   environment.pathsToLink = [ "/share/zsh" ];
   
-  # QT
-  # programs.qt5ct.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -105,7 +103,6 @@
     git
     home-manager
     neofetch
-    kitty
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
