@@ -16,6 +16,7 @@
   environment.systemPackages = with pkgs; [
     graphite-gtk-theme
     pkgs.gnome.gnome-tweaks
+    pkgs.gnomeExtensions.user-themes
   ];
 
 }
