@@ -10,6 +10,7 @@
   # services.xserver.desktopManager.gnome.enable = true;
   services.displayManager.sddm.wayland.enable = true;
   programs.xwayland.enable = true;
+  security.pam.services.swaylock = {};
 
   programs.sway = {
     enable = true;
@@ -34,6 +35,7 @@
     #   export MOZ_ENABLE_WAYLAND=1
     # '';
   };
+  
   programs.waybar.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
