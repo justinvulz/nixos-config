@@ -12,7 +12,7 @@
     };
   };
 
-  outputs = {self, nixpkgs, home-manager, ...}@inputs: 
+  outputs = {self, nixpkgs, home-manager, nixos-cosmic, ...}@inputs: 
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
