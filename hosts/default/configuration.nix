@@ -6,7 +6,8 @@
   [ 
     ./hardware-configuration.nix
     # ./../../modules/nixos/sway.nix
-    ./../../modules/nixos/gnome.nix
+    # ./../../modules/nixos/gnome.nix
+    ./../../modules/nixos/cosmic.nix
   ];
 
   # Bootloader.
