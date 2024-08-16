@@ -2,7 +2,7 @@
   description = "First test flake";
 
   inputs ={
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-24.05";
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
@@ -21,7 +21,16 @@
     nixosConfigurations = {
       justin-nixos = lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./hosts/default/configuration.nix ];
+        modules = [ 
+          {
+            nix.settings = {
+              substituters = [ "https://cosmic.cachix.org/" ];
+              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+            };
+          }
+          nixos-cosmic.nixosModules.default
+          ./hosts/default/configuration.nix 
+        ];
       };
     };
     homeConfigurations = {
@@ -30,13 +39,6 @@
         modules = [ 
           inputs.stylix.homeManagerModules.stylix 
           ./hosts/default/home.nix 
-          {
-            nix.settings = {
-              substituters = [ "https://cosmic.cachix.org/" ];
-              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-            };
-          }
-          nixos-cosmic.nixosModules.default
         ];
       };
     };
