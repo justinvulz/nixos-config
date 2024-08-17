@@ -12,7 +12,6 @@
   # manage.
   home.username = "justin";
   home.homeDirectory = "/home/justin";
-  useGlobalPkgs = true;
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -64,5 +63,5 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  
+  home-manager.useGlobalPkgs = true;
 }
