@@ -8,6 +8,7 @@
     # ./../../modules/nixos/sway.nix
     # ./../../modules/nixos/gnome.nix
     ./../../modules/nixos/cosmic.nix
+    ./../../modules/nixos/htop.nix
   ];
 
   # Bootloader.
