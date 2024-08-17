@@ -4,8 +4,8 @@
   imports = [
     ./../../modules/home-manager/git.nix
     ./../../modules/home-manager/zsh.nix
-    # ./../../modules/home-manager/stylix.nix
-    ./../../modules/home-manager/gtk-theme.nix
+    ./../../modules/home-manager/stylix.nix
+    # ./../../modules/home-manager/gtk-theme.nix
     # ./../../modules/home-manager/hyprland.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
