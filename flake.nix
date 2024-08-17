@@ -10,6 +10,13 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
+      # url = "github:nix-community/nixvim/nixos-24.05";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {self, nixpkgs, home-manager, nixos-cosmic, ...}@inputs: 
@@ -37,7 +44,8 @@
       justin = home-manager.lib.homeManagerConfiguration {
         inherit pkgs; 
         modules = [ 
-          inputs.stylix.homeManagerModules.stylix 
+          # inputs.stylix.homeManagerModules.stylix 
+          inputs.nixvim.homeManagerModules.nixvim
           ./hosts/default/home.nix 
         ];
       };
