@@ -28,12 +28,10 @@
               trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
             };
           }
-          {
-            home-manager.useGlobalPkgs = true;
-          }
           nixos-cosmic.nixosModules.default
           ./hosts/default/configuration.nix 
         ];
+        home-manager.useGlobalPKGS = true;
       };
     };
     homeConfigurations = {
