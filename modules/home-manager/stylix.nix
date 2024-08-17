@@ -1,6 +1,18 @@
 { config, pkgs,lib, inputs, ... }:
 
 {
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+  ];
+  
   stylix.enable = true;
   # stylix.polarity = "dark";
   stylix.image = ./../../config/wallpaper/01.jpg;

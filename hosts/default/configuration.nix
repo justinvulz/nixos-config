@@ -138,4 +138,11 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  # auto delete old generations
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
 }
