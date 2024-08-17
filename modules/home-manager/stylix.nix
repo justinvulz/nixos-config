@@ -5,7 +5,7 @@
   
   stylix.enable = true;
   # stylix.polarity = "dark";
-  stylix.image = ./../../config/wallpaper/01.jpg;
+  stylix.image = ./../../config/wallpaper/02.jpg;
   stylix.fonts = {
     serif = {
       package = pkgs.dejavu_fonts;
