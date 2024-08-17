@@ -42,7 +42,6 @@
     };
     homeConfigurations = {
       justin = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs; 
         modules = [ 
           # inputs.stylix.homeManagerModules.stylix 
           inputs.nixvim.homeManagerModules.nixvim
