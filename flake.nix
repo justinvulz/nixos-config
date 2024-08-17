@@ -16,7 +16,7 @@
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
-    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
   in {
     nixosConfigurations = {
       justin-nixos = lib.nixosSystem {
@@ -31,7 +31,6 @@
           nixos-cosmic.nixosModules.default
           ./hosts/default/configuration.nix 
         ];
-        home-manager.useGlobalPKGS = true;
       };
     };
     homeConfigurations = {
