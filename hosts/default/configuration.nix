@@ -120,6 +120,7 @@
     mplus-outline-fonts.githubRelease
     dina-font
     proggyfonts
+    meslo-lgs-nf
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
