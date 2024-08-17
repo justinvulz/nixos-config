@@ -4,7 +4,6 @@
 {
   imports =
   [ 
-    <home-manager/nixos> 
     ./hardware-configuration.nix
     # ./../../modules/nixos/sway.nix
     # ./../../modules/nixos/gnome.nix
