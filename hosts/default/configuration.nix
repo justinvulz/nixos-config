@@ -48,13 +48,13 @@
   };
 
   i18n.inputMethod = {
-    type  = "fcitx5";
+    enabled = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-chewing  
-    ]
-    
-  }
+    ];
+  };
 
+  
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
