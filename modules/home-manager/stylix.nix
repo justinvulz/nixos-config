@@ -4,7 +4,7 @@
   
   
   stylix.enable = true;
-  # stylix.polarity = "dark";
+  stylix.polarity = "dark";
   stylix.image = ./../../config/wallpaper/02.jpg;
   stylix.fonts = {
     serif = {
