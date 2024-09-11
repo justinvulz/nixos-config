@@ -1,6 +1,6 @@
 {pkgs, lib, inputs, ... }:
 let 
-  hpkgs = inputs.hyprland-plugins.packages."${pkgs.system}";
+  hpkgs = inputs.hyprland-plugins.packages."${pkgs.stdenv.hostPlatform.system}";
 in 
 {
   imports = [ 
@@ -26,13 +26,12 @@ in
     };
 
     plugins = [
-      # hpkgs.hyprbars
+      hpkgs.hyprbars
       # hpkgs.default
     ];
   };
   
   home.packages = with pkgs; [
-    
     waybar
     hyprpaper
   ];
