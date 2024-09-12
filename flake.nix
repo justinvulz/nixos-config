@@ -9,10 +9,10 @@
 
     stylix.url = "github:danth/stylix";
 
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixos-cosmic = {
+    #   url = "github:lilyinstarlight/nixos-cosmic";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     
     nixvim = {
       url = "github:nix-community/nixvim/nixos-24.05";
@@ -20,13 +20,17 @@
     };
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+
+    pyprland.url = "github:hyprland-community/pyprland";
+
+    # hyprswitch.url = "github:h3rmt/hyprswitch/release";
   };
 
-  outputs = {self, nixpkgs, home-manager, nixos-cosmic, ...}@inputs: 
+  outputs = {self, nixpkgs, home-manager,hyprland, ...}@inputs: 
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
@@ -56,6 +60,13 @@
         modules = [ 
           inputs.stylix.homeManagerModules.stylix 
           inputs.nixvim.homeManagerModules.nixvim
+         #hyprland.homeManagerModules.default
+	 # {
+	 #   wayland.windowManager.hyprland.enable = true;
+	 #   wayland.windowManager.hyprland.plugins = [
+	 #     inputs.hyprland-plugins.packages."${pkgs.stdenv.hostPlatform.system}".borders-plus-plus
+	 #   ];
+	 # }
           ./hosts/default/home.nix 
         ];
       };
