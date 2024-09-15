@@ -54,8 +54,12 @@
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [
-      fcitx5-chewing  
+      rime-data
+      fcitx5-gtk
+      fcitx5-rime
+      fcitx5-nord
     ];
+    fcitx5.waylandFrontend = true;
   };
 
   
@@ -160,6 +164,8 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
+  nix.optimise.automatic = true;
+  
 
   fonts.packages = with pkgs; [
     noto-fonts
@@ -173,4 +179,5 @@
     proggyfonts
     meslo-lgs-nf
   ];
+
 }

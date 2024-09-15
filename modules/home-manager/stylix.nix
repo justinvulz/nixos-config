@@ -6,6 +6,11 @@
   stylix.enable = true;
   stylix.polarity = "dark";
   stylix.image = ./../../config/wallpaper/02.jpg;
+
+  stylix.cursor.package = pkgs.bibata-cursors;
+  stylix.cursor.name = "Bibata-Modern-Ice";
+  stylix.cursor.size = 25;
+
   stylix.fonts = {
     serif = {
       package = pkgs.dejavu_fonts;

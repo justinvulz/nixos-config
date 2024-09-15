@@ -27,7 +27,12 @@
 
     pyprland.url = "github:hyprland-community/pyprland";
 
-    # hyprswitch.url = "github:h3rmt/hyprswitch/release";
+    # split-monitor-workspaces = {
+    #   url = "github:Duckonaut/split-monitor-workspaces";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+
+    hyprswitch.url = "github:h3rmt/hyprswitch/release";
   };
 
   outputs = {self, nixpkgs, home-manager,hyprland, ...}@inputs: 
@@ -39,7 +44,7 @@
     nixosConfigurations = {
       justin-nixos = lib.nixosSystem {
         system = "x86_64-linux";
-	specialArgs = {inherit inputs; };
+	      specialArgs = {inherit inputs; };
         modules = [ 
         #   {
         #     nix.settings = {

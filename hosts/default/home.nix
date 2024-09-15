@@ -26,7 +26,11 @@
     discord
     lshw
     nvtopPackages.full
+    # playerctl
+    spotify
+    ncspot
   ];
+  # services.spotifyd.enable = true;
     
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -42,6 +46,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    
   };
 
   # Home Manager can also manage your environment variables through
