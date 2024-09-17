@@ -3,6 +3,7 @@
 
   inputs ={
     nixpkgs.url = "nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -33,13 +34,19 @@
     # };
 
     hyprswitch.url = "github:h3rmt/hyprswitch/release";
+
+    nbfc-linux = {
+      url = "github:nbfc-linux/nbfc-linux";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {self, nixpkgs, home-manager,hyprland, ...}@inputs: 
+  outputs = {self, nixpkgs, nixpkgs-unstable, home-manager,hyprland, ...}@inputs: 
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
     pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
+    pkgs-unstable = import nixpkgs-unstable {inherit system; config.allowUnfree = true;};
   in {
     nixosConfigurations = {
       justin-nixos = lib.nixosSystem {
@@ -61,17 +68,13 @@
     homeConfigurations = {
       justin = home-manager.lib.homeManagerConfiguration {
         inherit pkgs; 
-	extraSpecialArgs = {inherit inputs;};
+	      extraSpecialArgs = {
+          inherit inputs;
+          inherit pkgs-unstable;
+        };
         modules = [ 
           inputs.stylix.homeManagerModules.stylix 
           inputs.nixvim.homeManagerModules.nixvim
-         #hyprland.homeManagerModules.default
-	 # {
-	 #   wayland.windowManager.hyprland.enable = true;
-	 #   wayland.windowManager.hyprland.plugins = [
-	 #     inputs.hyprland-plugins.packages."${pkgs.stdenv.hostPlatform.system}".borders-plus-plus
-	 #   ];
-	 # }
           ./hosts/default/home.nix 
         ];
       };

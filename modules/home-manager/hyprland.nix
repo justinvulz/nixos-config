@@ -9,7 +9,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-
+    xwayland.enable = true;
     plugins = with pkgs.hyprlandPlugins; [
       # borders-plus-plus
       hyprexpo

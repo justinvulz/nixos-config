@@ -1,7 +1,14 @@
 {pkgs, lib, config, ... } : {
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
-  hardware.opengl.enable = true;
+
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
   services.xserver.videoDrivers = ["nvidia"];
+
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = lib.mkDefault false;
@@ -9,9 +16,14 @@
     open = false;
     nvidiaSettings = true;
   };
+
+  # hardware.graphics.enable = true;
+
   hardware.nvidia.prime = {
-    offload.enable = true;
+    sync.enable = true;
     intelBusId = "PCI:0:2:0";
     nvidiaBusId = "PCI:1:0:0";
   };
+  
+
 }

@@ -11,6 +11,10 @@
     ./../../modules/nixos/hyprland.nix
     ./../../modules/nixos/htop.nix
     ./../../modules/nixos/nvidia.nix
+    
+    ./../../modules/nixos/mount/m1.nix
+    ./../../modules/nixos/steam.nix
+    ./../../modules/nixos/nbfc.nix
   ];
 
   # Bootloader.
@@ -36,7 +40,20 @@
   # Set your time zone.
   time.timeZone = "Asia/Taipei";
 
+  # CUP Bootting
+  services.thermald.enable = true; 
+  # powerManagement.cpuFreqGovernor = "performance";
+
+  # FIX MSI FAN ?!!!!
+  boot.kernelModules = [ "ec_sys" ];
+  boot.kernelParams = [
+    "ec_sys.write_support=1"
+  ];
+  # boot.extraModprobeConfig = ''
+  #  options ec_sys write_support=1
+  # '';
   # Select internationalisation properties.
+
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {

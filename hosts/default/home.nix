@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -25,11 +25,14 @@
   home.packages = with pkgs; [
     discord
     lshw
+    lm_sensors
     nvtopPackages.full
     # playerctl
-    spotify
+    # spotify
     ncspot
+    btop
   ];
+
   # services.spotifyd.enable = true;
     
 

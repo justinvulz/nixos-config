@@ -1,5 +1,9 @@
 {pkgs, lib, ... }: 
 {
+  
+  imports = [
+    ./nixvim/lsp.nix
+  ];
   programs.nixvim = {
     enable = true;
     opts = {
@@ -12,12 +16,19 @@
       tabstop = 2;
     };
     # colorschemes.gruvbox.enable = true;
-    extraPlugins = [ pkgs.vimPlugins.gruvbox ];
+    extraPlugins = with pkgs;[ 
+      vimPlugins.gruvbox 
+    ];
     colorscheme = "gruvbox";
-      plugins = {
-				lightline.enable = true;
-				bufferline.enable = true;
-				treesitter.enable = true;
-      };
+    plugins = {
+			lightline.enable = true;
+			bufferline.enable = true;
+			treesitter.enable = true;
+      cmp = {
+        enable = true;
+        autoEnableSources = true;
+
+      };    
+    };
   };
 }
