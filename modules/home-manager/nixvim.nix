@@ -5,7 +5,9 @@
     ./nixvim/lsp.nix
   ];
   programs.nixvim = {
+
     enable = true;
+
     opts = {
       number = true;
       relativenumber = true;
@@ -15,11 +17,13 @@
 			expandtab = true;
       tabstop = 2;
     };
-    # colorschemes.gruvbox.enable = true;
+
     extraPlugins = with pkgs;[ 
       vimPlugins.gruvbox 
     ];
+
     colorscheme = "gruvbox";
+
     plugins = {
 			lightline.enable = true;
 			bufferline.enable = true;
@@ -27,8 +31,10 @@
       cmp = {
         enable = true;
         autoEnableSources = true;
-
       };    
+      telescope.enable = true;
     };
+
   };
+
 }

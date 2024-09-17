@@ -7,7 +7,7 @@
     ./../../modules/home-manager/nixvim.nix
     ./../../modules/home-manager/hyprland.nix
     ./../../modules/home-manager/stylix.nix
-    # ./../../modules/home-manager/gtk-theme.nix
+    ./../../modules/home-manager/programming_language.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
