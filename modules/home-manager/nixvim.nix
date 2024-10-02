@@ -3,6 +3,7 @@
   
   imports = [
     ./nixvim/lsp.nix
+    ./nixvim/keymap.nix
   ];
   programs.nixvim = {
 
@@ -18,21 +19,28 @@
       tabstop = 2;
     };
 
-    extraPlugins = with pkgs;[ 
-      vimPlugins.gruvbox 
+    extraPlugins = with pkgs.vimPlugins;[ 
+      gruvbox 
+      vscode-nvim
     ];
 
-    colorscheme = "gruvbox";
+    colorscheme = "vscode";
 
     plugins = {
 			lightline.enable = true;
+
 			bufferline.enable = true;
+
 			treesitter.enable = true;
+
       cmp = {
         enable = true;
         autoEnableSources = true;
       };    
+
       telescope.enable = true;
+
+      rainbow-delimiters.enable = true;
     };
 
   };

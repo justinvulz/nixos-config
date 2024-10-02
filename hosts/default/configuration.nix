@@ -14,12 +14,14 @@
     
     ./../../modules/nixos/mount/m1.nix
     ./../../modules/nixos/steam.nix
-    ./../../modules/nixos/nbfc.nix
+    # ./../../modules/nixos/nbfc.nix
+    ./../../modules/nixos/ssh.nix
   ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "ntfs" ];
   # boot.loader.grub.enable = true;
   # boot.loader.grub.device = "/dev/sda";
   # boot.loader.grub.useOSProber = true;
@@ -42,7 +44,7 @@
 
   # CUP Bootting
   services.thermald.enable = true; 
-  # powerManagement.cpuFreqGovernor = "performance";
+  powerManagement.cpuFreqGovernor = "performance";
 
   # FIX MSI FAN ?!!!!
   boot.kernelModules = [ "ec_sys" ];

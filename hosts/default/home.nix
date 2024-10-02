@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ lib,config, pkgs, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -30,9 +30,17 @@
     # playerctl
     # spotify
     ncspot
-    btop
+    okular
+    # btop
+    cinnamon.nemo
+    zip
+    unzip
   ];
+  programs.btop.enable = true;
+  programs.btop.settings = lib.mkForce {
 
+    color_theme = "Default";
+  };
   # services.spotifyd.enable = true;
     
 

@@ -13,10 +13,10 @@ in
       splash_offset = 2.0;
 
       preload = [
-        (p2w "02.jpg")
+        (p2w "snow.jpg")
       ];
       wallpaper = [
-        ", ${p2w "02.jpg"}"
+        ", ${p2w "snow.jpg"}"
       ];
 
 
