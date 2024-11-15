@@ -12,7 +12,7 @@
     ./../../modules/nixos/htop.nix
     ./../../modules/nixos/nvidia.nix
     
-    ./../../modules/nixos/mount/m1.nix
+    # ./../../modules/nixos/mount/m1.nix
     ./../../modules/nixos/steam.nix
     # ./../../modules/nixos/nbfc.nix
     ./../../modules/nixos/ssh.nix
@@ -27,7 +27,7 @@
   # boot.loader.grub.device = "/dev/sda";
   # boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "justin-nixos"; # Define your hostname.
+  networking.hostName = "justin-msi"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

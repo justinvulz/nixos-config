@@ -31,7 +31,6 @@ in
       # map d and c to block hole 
       (kmap "n" "d" "\"_d")
       (kmap "n" "c" "\"_c")
-      (kmap "n" "x" "\"_x")
 
 
       # telescop 

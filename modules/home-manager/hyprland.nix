@@ -33,6 +33,7 @@
         "$ALT, S, workspace, +1"  
         "$mod SHIFT, Right, movetoworkspace, +1"
         "$mod SHIFT, Left, movetoworkspace, -1"
+        "$mod SHIFT, S, exec, grim -g \"$(slurp)\" - | wl-copy && wl-paste > ~/Picture/Screenshots/Screenshot-$(date +%F_%T).png | dunstify \"Screenshot of the region taken\" -t 1000 # screenshot of a region " 
       ];
       bindm = [
         "ALT, mouse:272, movewindow"

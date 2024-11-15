@@ -7,7 +7,6 @@ in {
   programs.waybar.settings = { 
 
     mainBar = {
-      
       # Main Config
       "name" = "top_bar";
       "layer" = "top"; # Waybar at top layer
@@ -28,12 +27,20 @@ in {
         "clock#calendar"
       ];
       "modules-right" = [ 
+        "wireplumber"
         "bluetooth"
         "network" 
         "group/misc" 
         "custom/logout_menu" 
       ];
 
+      "wireplumber"= {
+        "format"= "{volume}%{icon}";
+        "on-click"= "helvum";
+        "max-volume"= 150;
+        "format-icons"= ["" "" ""];
+        "scroll-step"= 0.6;
+      };
       # Modules Config
       "hyprland/workspaces" = {
           "on-click" = "activate";  
