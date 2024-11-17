@@ -40,7 +40,7 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
-  # Set your time zone.
+  # Set your time zone. time.timeZone = "Asia/Taipei";
   time.timeZone = "Asia/Taipei";
 
   # CUP Bootting
@@ -149,6 +149,11 @@
   ];
 
 
+  #mount HDD
+  fileSystems."/home/justin/DATA_HDD" = {
+    device = "/dev/disk/by-uuid/696f17f3-debe-48ac-bee8-e9436a45d789";
+    fsType = "ext4";
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

@@ -37,6 +37,7 @@
       ];
       bindm = [
         "ALT, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
       ];
       bindl = [
         "$mod, $mod_L, exec, pkill rofi || rofi -show run"

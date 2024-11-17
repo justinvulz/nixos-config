@@ -29,6 +29,7 @@
     lshw
     lm_sensors
     nvtopPackages.full
+    # gpu-burn
 
     spotify
     okular #pdf reader

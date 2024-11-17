@@ -22,8 +22,7 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
+    #   url = "github:hyprwm/hyprland-plugins"; inputs.hyprland.follows = "hyprland";
     # };
 
     pyprland.url = "github:hyprland-community/pyprland";
@@ -64,6 +63,13 @@
           ./hosts/default/configuration.nix 
         ];
       };
+      justin-msi = lib.nixosSystem {
+        system = "x86_64-linux";
+	      specialArgs = {inherit inputs; };
+        modules = [ 
+          ./hosts/msilaptop/configuration.nix 
+        ];
+      };
     };
     homeConfigurations = {
       justin = home-manager.lib.homeManagerConfiguration {
@@ -75,7 +81,7 @@
         modules = [ 
           inputs.stylix.homeManagerModules.stylix 
           inputs.nixvim.homeManagerModules.nixvim
-          ./hosts/default/home.nix 
+          ./hosts/user/home.nix 
         ];
       };
     };
