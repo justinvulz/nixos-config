@@ -9,20 +9,35 @@
         # C/C++
         clangd.enable = true;
 
+        #nix
+        nixd.enable = true;
+
         #typst
-        typst-lsp = {
+        tinymist = {
           enable = true;
           filetypes = [
             "typst"
           ];
+
+          rootDir = "vim.fn.getcwd()";
+
           autostart = true;
-          cmd = [
-            "typst-lsp"
-          ];
-          settings = {
-            exportPdf = "onSave";
+          extraOptions = {
+            offset_encoding = "utf-8";
           };
+          
+          # settings = {
+          #   exportPdf = "onSave";
+          #   outputPath = "$root/$name";
+          # };
         };
+
+        rust_analyzer = {
+          enable = true;
+          installCargo = false;
+          installRustc = false;
+        };
+        
       };
 
 

@@ -14,7 +14,7 @@
     
     # ./../../modules/nixos/mount/m1.nix
     ./../../modules/nixos/steam.nix
-    # ./../../modules/nixos/nbfc.nix
+    ./../../modules/nixos/nbfc.nix
     ./../../modules/nixos/ssh.nix
     ./../../modules/nixos/docker.nix
   ];
@@ -47,7 +47,7 @@
   services.thermald.enable = true; 
   powerManagement.cpuFreqGovernor = "performance";
 
-  # FIX MSI FAN ?!!!!
+  # fIX MSI FAN ?!!!!
   boot.kernelModules = [ "ec_sys" ];
   boot.kernelParams = [
     "ec_sys.write_support=1"
@@ -72,6 +72,8 @@
   };
 
   i18n.inputMethod = {
+    # type = "fcitx5";
+    # enabled = true;
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [
       rime-data
@@ -154,6 +156,11 @@
     device = "/dev/disk/by-uuid/696f17f3-debe-48ac-bee8-e9436a45d789";
     fsType = "ext4";
   };
+
+  # vm
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -171,7 +178,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -195,7 +202,6 @@
   fonts.packages = with pkgs; [
     noto-fonts-cjk-sans
     noto-fonts
-    noto-fonts-cjk
     noto-fonts-emoji
     liberation_ttf
     fira-code

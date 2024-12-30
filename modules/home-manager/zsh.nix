@@ -13,6 +13,7 @@
     shellAliases = {
       ll = "ls -l";
       cls = "clear";
+      y = "yazi";
     };
     history = {
       size = 100;

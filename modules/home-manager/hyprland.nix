@@ -3,16 +3,22 @@
   imports = [ 
     ./hypr/hyprpaper.nix  
     ./hypr/waybar.nix 
-    ./hypr/pypr.nix
+    # ./hypr/pypr.nix
   ];
-  programs.kitty.enable = true;
+  programs.kitty = {
+    enable = true;
+    settings = {
+      dynamic_background_opacity = true;
+    };
+    
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     plugins = with pkgs.hyprlandPlugins; [
       # borders-plus-plus
-      hyprexpo
+      # hyprexpo
     ] ++ [
       #inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
     ];
@@ -26,8 +32,9 @@
 
       bind = [
 	      "$mod, Q, killactive"
-        "$mod, B, exec, pypr expose"
-        "$mod, $key, hyprexpo:expo, toggle"
+
+        # "$mod, $key, hyprexpo:expo, toggle"
+
         "ALT, $key, cyclenext,"
         "$ALT, A, workspace, -1"  
         "$ALT, S, workspace, +1"  
@@ -37,7 +44,7 @@
       ];
       bindm = [
         "ALT, mouse:272, movewindow"
-        "SUPER, mouse:273, resizewindow"
+        "ALT, mouse:273, resizewindow"
       ];
       bindl = [
         "$mod, $mod_L, exec, pkill rofi || rofi -show run"
@@ -69,25 +76,15 @@
       input = {
         follow_mouse = 2;
       };
-      # "plugin:borders-plus-plus" = {
-      #   add_borders = 1;
-	    #   border_size_1 = 10;
-      #   col.border_1 = lib.mkForce "rgb(0x4287f5)";
-      #   natural_rounding = "yes";
+
+      # plugin = {
+      #   hyprexpo = {
+      #     workspace_method = "center current";
+      #     gap_size = 10;
+
+      #   };
+
       # };
-
-      # device = {
-      #   name = "sinowealth-game-mouse";
-      #   sensitivity = -0.10;
-      # };
-      plugin = {
-        hyprexpo = {
-          workspace_method = "center current";
-          gap_size = 10;
-
-        };
-
-      };
     };
 
   };
@@ -95,12 +92,10 @@
 
   home.packages = with pkgs; [
     dunst
-    pyprland
+    # pyprland
     rofi-wayland
     wlogout
     # hypridle
-    # bemenu
-    # wofi
     wev
     # inputs.hyprswitch.packages.x86_64-linux.default
   ];

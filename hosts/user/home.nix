@@ -1,4 +1,4 @@
-{ lib,config, pkgs, pkgs-unstable, ... }:
+{ lib,config, pkgs, ... }:
 
 {
   imports = [
@@ -24,19 +24,22 @@
 
   home.packages = with pkgs; [
     discord
-
+      
+    ncspot #spotify
     # system tool
     lshw
     lm_sensors
     nvtopPackages.full
     # gpu-burn
 
-    spotify
     okular #pdf reader
-    cinnamon.nemo #file browser
+    # cinnamon.nemo #file browser
+    yazi #file manager
     zip
     unzip
     mpv #video player 
+    # cava #viluraize audio 
+    # fzf #command-line fuzzy
     
     grim #screenshot 
     slurp #screen area selection
@@ -44,6 +47,7 @@
 
     onlyoffice-bin
   ];
+
   programs.btop.enable = true;
   programs.btop.settings = lib.mkForce {
     color_theme = "Default";
