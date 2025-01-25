@@ -9,7 +9,7 @@
   programs.nixvim = {
 
     enable = true;
-    defaultEditor = true;
+    # defaultEditor = true;
     
     opts = {
       number = true;
@@ -21,15 +21,7 @@
       tabstop = 2;
     };
 
-    # extraPlugins = with pkgs.vimPlugins;[ 
-    #   # gruvbox 
-    #   # vscode-nvim
-    # ];
 
-    # colorschemes.vscode.enable = lib.mkForce true;
-    ## colorschemes.gruvbox.enable = lib.mkForce true;
-    ## colorschemes.everforest.enable = true;
-    ## colorschemes.poimandres.enable = true;   
     colorschemes.kanagawa.enable = true;
     colorschemes.kanagawa.settings.background.dark = "dragon";
 

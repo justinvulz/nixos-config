@@ -1,4 +1,4 @@
-{ lib,config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   imports = [
@@ -8,6 +8,8 @@
     ./../../modules/home-manager/hyprland.nix
     ./../../modules/home-manager/stylix.nix
     ./../../modules/home-manager/programming_language.nix
+    ./../../modules/home-manager/helix.nix
+    ./../../modules/home-manager/zellij.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -24,36 +26,41 @@
 
   home.packages = with pkgs; [
     discord
-      
-    ncspot #spotify
+
+    ncspot # spotify
     # system tool
     lshw
     lm_sensors
     nvtopPackages.full
     # gpu-burn
 
-    okular #pdf reader
+    okular # pdf reader
     # cinnamon.nemo #file browser
-    yazi #file manager
+    yazi # file manager
     zip
     unzip
-    mpv #video player 
+    mpv # video player
     # cava #viluraize audio 
     # fzf #command-line fuzzy
-    
-    grim #screenshot 
-    slurp #screen area selection
-    wl-clipboard #clipboard
+
+    grim # screenshot
+    slurp # screen area selection
+    wl-clipboard # clipboard
 
     onlyoffice-bin
+
+    s-tui
+    stress
+
+    # sonusmix
+    qpwgraph
+
+    # cloudflared
   ];
 
   programs.btop.enable = true;
-  programs.btop.settings = lib.mkForce {
-    color_theme = "Default";
-  };
+  programs.btop.settings = lib.mkForce { color_theme = "Default"; };
   # services.spotifyd.enable = true;
-    
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -68,7 +75,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    
+
   };
 
   # Home Manager can also manage your environment variables through

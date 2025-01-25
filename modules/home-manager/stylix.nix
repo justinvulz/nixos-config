@@ -14,6 +14,7 @@
   # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml\n";
 
   # stylix.targets.nixvim.enable = false;
+  stylix.targets.helix.enable = false;
 
   stylix.base16Scheme = {
     base00= "202020";

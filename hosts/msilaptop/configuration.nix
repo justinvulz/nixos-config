@@ -1,17 +1,15 @@
-
-{ config, pkgs,lib, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
-  imports =
-  [ 
+  imports = [
     ./hardware-configuration.nix
+    ./spmodule/nvidia.nix
     # ./../../modules/nixos/sway.nix
     # ./../../modules/nixos/gnome.nix
     # ./../../modules/nixos/cosmic.nix
     ./../../modules/nixos/hyprland.nix
     ./../../modules/nixos/htop.nix
-    ./../../modules/nixos/nvidia.nix
-    
+
     # ./../../modules/nixos/mount/m1.nix
     ./../../modules/nixos/steam.nix
     ./../../modules/nixos/nbfc.nix
@@ -43,15 +41,13 @@
   # Set your time zone. time.timeZone = "Asia/Taipei";
   time.timeZone = "Asia/Taipei";
 
-  # CUP Bootting
-  services.thermald.enable = true; 
+  # CPU thermald Bootting
+  services.thermald.enable = true;
   powerManagement.cpuFreqGovernor = "performance";
 
   # fIX MSI FAN ?!!!!
   boot.kernelModules = [ "ec_sys" ];
-  boot.kernelParams = [
-    "ec_sys.write_support=1"
-  ];
+  boot.kernelParams = [ "ec_sys.write_support=1" ];
   # boot.extraModprobeConfig = ''
   #  options ec_sys write_support=1
   # '';
@@ -75,16 +71,10 @@
     # type = "fcitx5";
     # enabled = true;
     enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      rime-data
-      fcitx5-gtk
-      fcitx5-rime
-      fcitx5-nord
-    ];
+    fcitx5.addons = with pkgs; [ rime-data fcitx5-gtk fcitx5-rime fcitx5-nord ];
     fcitx5.waylandFrontend = true;
   };
 
-  
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -121,9 +111,10 @@
     isNormalUser = true;
     description = "justin";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+    packages = with pkgs;
+      [
+        #  thunderbird
+      ];
   };
 
   # uninstall the nixos documentation
@@ -136,20 +127,19 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   environment.pathsToLink = [ "/share/zsh" ];
-  
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim 
+    vim
     wget
     git
     home-manager
     neofetch
   ];
-
 
   #mount HDD
   fileSystems."/home/justin/DATA_HDD" = {
@@ -188,7 +178,7 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # auto delete old generations
   nix.gc = {
@@ -197,7 +187,6 @@
     options = "--delete-older-than 7d";
   };
   nix.optimise.automatic = true;
-  
 
   fonts.packages = with pkgs; [
     noto-fonts-cjk-sans
@@ -210,6 +199,8 @@
     dina-font
     proggyfonts
     meslo-lgs-nf
+    wqy_zenhei
+    wqy_microhei
   ];
   fonts.fontDir.enable = true;
 
