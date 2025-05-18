@@ -4,12 +4,14 @@
   imports = [
     ./../../modules/home-manager/git.nix
     ./../../modules/home-manager/zsh.nix
-    ./../../modules/home-manager/nixvim.nix
+    # ./../../modules/home-manager/nixvim.nix
     ./../../modules/home-manager/hyprland.nix
     ./../../modules/home-manager/stylix.nix
     ./../../modules/home-manager/programming_language.nix
     ./../../modules/home-manager/helix.nix
     ./../../modules/home-manager/zellij.nix
+    ./../../modules/home-manager/spicetify.nix
+    ./../../modules/home-manager/obs.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -27,14 +29,16 @@
   home.packages = with pkgs; [
     discord
 
-    ncspot # spotify
+    # ncspot # spotify
+    # spotify
     # system tool
     lshw
     lm_sensors
     nvtopPackages.full
+    parted # disk part
     # gpu-burn
 
-    okular # pdf reader
+    kdePackages.okular # pdf reader
     # cinnamon.nemo #file browser
     yazi # file manager
     zip
@@ -56,6 +60,10 @@
     qpwgraph
 
     # cloudflared
+
+    prismlauncher # minecraft
+    # ventoy
+
   ];
 
   programs.btop.enable = true;

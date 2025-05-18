@@ -1,8 +1,6 @@
-{pkgs, lib, config, ... } : {
-  
+{ pkgs, lib, config, ... }: {
+
   virtualisation.docker.enable = true;
   users.users.justin.extraGroups = [ "docker" ];
-  environment.systemPackages = with pkgs; [
-    docker-compose  
-  ];
+  environment.systemPackages = with pkgs; [ docker-compose ];
 }

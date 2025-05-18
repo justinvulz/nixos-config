@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }: {
+{ config, pkgs, lib, ... }: {
   imports = [
     ./hypr/hyprpaper.nix
     ./hypr/waybar.nix
@@ -52,7 +52,10 @@
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ];
       windowrule = [ "pseudo, fcitx" ];
-      windowrulev2 = [ "float, title:子母畫面" ];
+      windowrulev2 = [
+        "float, title:子母畫面"
+        # "float, class:spotify"
+      ];
       exec-once = [
         "pypr"
         "waybar"
@@ -70,7 +73,10 @@
 
       decoration = { "rounding" = 10; };
 
-      input = { follow_mouse = 2; };
+      input = {
+        follow_mouse = 2;
+        # mouse_refocus = false;
+      };
 
       monitor = [
         "desc:Microstep MSI MP253 PC7H054600589, highrr,auto,1"

@@ -1,29 +1,89 @@
 <!DOCTYPE patchbay>
-<patchbay name="willen_mic" version="0.8.0">
+<patchbay name="willen_mic" version="0.8.1">
  <items>
   <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="spotify" port="spotify:output_FR"/>
+   <input node="XROUND VIBE" port="XROUND VIBE:playback_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Firefox-1" port="Firefox:output_FR"/>
+   <input node="XROUND VIBE" port="XROUND VIBE:playback_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Firefox-2" port="Firefox:output_FR"/>
+   <input node="XROUND VIBE" port="XROUND VIBE:playback_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Firefox-1" port="Firefox:output_FL"/>
+   <input node="XROUND VIBE" port="XROUND VIBE:playback_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="XROUND VIBE [Monitor]" port="XROUND VIBE:monitor_FR"/>
+   <input node="WILLEN" port="WILLEN:playback_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Firefox-1" port="Firefox:output_FL"/>
+   <input node="WILLEN" port="WILLEN:playback_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="spotify" port="spotify:output_FL"/>
+   <input node="XROUND VIBE" port="XROUND VIBE:playback_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
    <output node="Firefox" port="Firefox:output_FR"/>
-   <input node="Built-in Audio Analog Stereo" port="ALC233 Analog:playback_FR"/>
+   <input node="XROUND VIBE" port="XROUND VIBE:playback_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Firefox" port="Firefox:output_FL"/>
+   <input node="LinkBuds S" port="LinkBuds S:playback_FL"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
    <output node="WILLEN" port="WILLEN:capture_MONO"/>
    <input node="Bluetooth internal capture stream for WILLEN" port="Bluetooth internal capture stream for WILLEN:input_MONO"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="Firefox" port="Firefox:output_FL"/>
+   <output node="OBS" port="OBS:monitor_FR"/>
+   <input node="Built-in Audio Analog Stereo" port="ALC233 Analog:playback_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="XROUND VIBE [Monitor]" port="XROUND VIBE:monitor_FL"/>
    <input node="WILLEN" port="WILLEN:playback_FL"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="Firefox" port="Firefox:output_FR"/>
-   <input node="WILLEN" port="WILLEN:playback_FR"/>
+   <output node="LinkBuds S" port="LinkBuds S:capture_MONO"/>
+   <input node="WEBRTC VoiceEngine" port="WEBRTC VoiceEngine:input_MONO"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="Firefox" port="Firefox:output_FL"/>
-   <input node="Built-in Audio Analog Stereo" port="ALC233 Analog:playback_FL"/>
+   <output node="Firefox" port="Firefox:output_FR"/>
+   <input node="LinkBuds S" port="LinkBuds S:playback_FR"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
    <output node="Bluetooth internal capture stream for WILLEN" port="Bluetooth internal capture stream for WILLEN:monitor_MONO"/>
    <input node="WEBRTC VoiceEngine" port="WEBRTC VoiceEngine:input_MONO"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Firefox-1" port="Firefox:output_FR"/>
+   <input node="WILLEN" port="WILLEN:playback_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Firefox" port="Firefox:output_FL"/>
+   <input node="XROUND VIBE" port="XROUND VIBE:playback_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="OBS" port="OBS:monitor_FL"/>
+   <input node="Built-in Audio Analog Stereo" port="ALC233 Analog:playback_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Firefox-2" port="Firefox:output_FL"/>
+   <input node="XROUND VIBE" port="XROUND VIBE:playback_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="LinkBuds S" port="LinkBuds S:capture_MONO"/>
+   <input node="Bluetooth internal capture stream for LinkBuds S" port="Bluetooth internal capture stream for LinkBuds S:input_MONO"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="LinkBuds S" port="LinkBuds S:capture_MONO"/>
+   <input node="discord_capture-1" port="discord_capture:input_MONO"/>
   </item>
  </items>
 </patchbay>

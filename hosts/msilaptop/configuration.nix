@@ -12,7 +12,7 @@
 
     # ./../../modules/nixos/mount/m1.nix
     ./../../modules/nixos/steam.nix
-    ./../../modules/nixos/nbfc.nix
+    # ./../../modules/nixos/nbfc.nix
     ./../../modules/nixos/ssh.nix
     ./../../modules/nixos/docker.nix
   ];
@@ -20,12 +20,10 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" ];
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.device = "/dev/sda";
-  # boot.loader.grub.useOSProber = true;
+  boot.supportedFilesystems = [ "ntfs" "zfs" ];
 
   networking.hostName = "justin-msi"; # Define your hostname.
+  networking.hostId = "37abf3e1";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -88,7 +86,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -148,8 +146,8 @@
   };
 
   # vm
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  # virtualisation.virtualbox.host.enable = true;
+  # users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

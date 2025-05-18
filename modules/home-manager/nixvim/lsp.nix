@@ -1,9 +1,9 @@
-{config, pkgs, ... }: {
+{ config, pkgs, ... }: {
 
   programs.nixvim = {
 
     plugins.lsp = {
-      
+
       enable = true;
       servers = {
         # C/C++
@@ -15,17 +15,13 @@
         #typst
         tinymist = {
           enable = true;
-          filetypes = [
-            "typst"
-          ];
+          filetypes = [ "typst" ];
 
           rootDir = "vim.fn.getcwd()";
 
           autostart = true;
-          extraOptions = {
-            offset_encoding = "utf-8";
-          };
-          
+          extraOptions = { offset_encoding = "utf-8"; };
+
           # settings = {
           #   exportPdf = "onSave";
           #   outputPath = "$root/$name";
@@ -37,15 +33,11 @@
           installCargo = false;
           installRustc = false;
         };
-        
-      };
 
+      };
 
     };
 
-
   };
-
-
 
 }
