@@ -1,7 +1,11 @@
 { pkgs, lib, ... }: {
 
-  programs.zellij.enable = true;
-  programs.zellij.enableZshIntegration = true;
+  programs.zellij = {
+    enable = true;
+    # enableZshIntegration = true;
+    # attachExistingSession = true;
+    # exitShellOnExit = true;
+  };
   xdg.configFile."zellij/config.kdl".text = ''
 
     keybinds {

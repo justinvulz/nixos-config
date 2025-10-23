@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -12,7 +12,11 @@
     ./../../modules/home-manager/zellij.nix
     ./../../modules/home-manager/spicetify.nix
     ./../../modules/home-manager/obs.nix
+    ./../../modules/home-manager/rofi.nix
+    inputs.zen-browser.homeModules.beta
+
   ];
+  programs.zen-browser.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "justin";
@@ -27,8 +31,10 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
+    tuxguitar
     discord
 
+    octaveFull # matlab opensource alt
     # ncspot # spotify
     # spotify
     # system tool
@@ -51,25 +57,39 @@
     slurp # screen area selection
     wl-clipboard # clipboard
 
-    onlyoffice-bin
-
-    s-tui
-    stress
+    # onlyoffice-bin
+    libreoffice-qt6-fresh
+    # s-tui
+    # feh
+    imv
 
     # sonusmix
-    qpwgraph
-
+    # qpwgraph
+    coppwr
     # cloudflared
-
+    pitivi
     prismlauncher # minecraft
+    # lunar-client
     # ventoy
-
+    # uxplay
+    # avahi
+    # vdhcoapp
   ];
 
   programs.btop.enable = true;
   programs.btop.settings = lib.mkForce { color_theme = "Default"; };
   # services.spotifyd.enable = true;
-
+  # xdg.enable = true;
+  # xdg.mimeApps = {
+  #   enable = true;
+  #   defaultApplications = {
+  #     "application/pdf" = [ "okularApplication_pdf.desktop" ];
+  #   };
+  #   associations.added = {
+  #     "application/pdf" = [ "okularApplication_pdf.desktop" ];
+  #   };
+  # };
+  # 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {

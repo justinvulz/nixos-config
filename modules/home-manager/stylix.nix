@@ -16,6 +16,7 @@
   # stylix.targets.nixvim.enable = false;
   stylix.targets.helix.enable = false;
   stylix.targets.spicetify.enable = false;
+  # stylix.targets.rofi.enable = false;
 
   stylix.base16Scheme = {
     base00 = "202020";

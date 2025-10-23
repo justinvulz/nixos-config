@@ -1,12 +1,13 @@
 { pkgs, lib, ... }: {
 
+  imports = [ ./helix/snippets.nix ];
   home.packages = with pkgs; [
     # lsp
-    nil
+    nil # nix
     # clang
     # clang-tools
-    bear
-    tinymist
+    # bear
+    tinymist # typst
     gcc
     simple-completion-language-server
   ];
@@ -20,6 +21,7 @@
       # theme = "gruvbox_dark_hard";
       # theme = "varua";
       theme = "autumn_night_self";
+      # theme = "autumn_night";
       # theme = "catppuccin_mocha";
       editor.cursor-shape = {
         normal = "block";
@@ -31,6 +33,7 @@
         inline-diagnostics.cursor-line = "warning";
         end-of-line-diagnostics = "hint";
         line-number = "relative";
+        true-color = true;
       };
 
       keys.normal = {
@@ -55,25 +58,40 @@
           name = "html";
           auto-format = false;
         }
-        # # introduce new language server
-        # [language-server.scls]
-        # command = "simple-completion-language-server"
-
-        # [language-server.scls.config]
-        # max_completion_items = 100           # set max completion results len for each group: words, snippets, unicode-input
-        # feature_words = true                 # enable completion by word
-        # feature_snippets = true              # enable snippets
-        # snippets_first = true                # completions will return before snippets by default
-        # snippets_inline_by_word_tail = false # suggest snippets by WORD tail, for example text `xsq|` become `x^2|` when snippet `sq` has body `^2`
-        # feature_unicode_input = false        # enable "unicode input"
-        # feature_paths = false                # enable path completion
-        # feature_citations = false            # enable citation completion (only on `citation` feature enabled)
-
-        # # write logs to /tmp/completion.log
-        # [language-server.scls.environment]
-        # RUST_LOG = "info,simple-completion-language-server=info"
-        # LOG_FILE = "/tmp/completion.log"
+        { name = "cpp"; }
+        {
+          name = "lean";
+          language-servers = [ "scls" "lean" ];
+        }
+        {
+          name = "python";
+          indent = {
+            tab-width = 2;
+            unit = "  ";
+          };
+        }
       ];
+      language-server = {
+        lean = {
+          command = "lean";
+          args = [ "--server" ];
+        };
+        scls = {
+          command = "simple-completion-language-server";
+          config = {
+            max_completion_items = 100;
+            feature_words = true;
+            feature_snippets = true;
+            snippets_first = true;
+            snippets_inline_by_word_tail = false;
+            feature_unicode_input = true;
+            feature_paths = false;
+            feature_citations = false;
+
+          };
+        };
+
+      };
     };
 
     themes = {
@@ -81,6 +99,10 @@
         "inherits" = "autumn";
         "variable" = "#c56e46";
         "constant" = "#f29b5c";
+        "ui.cursor.primary" = {
+          fg = "#2d3640";
+          bg = "white";
+        };
 
       };
 

@@ -20,21 +20,15 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
+      # to have it up-to-date or simply don't specify the nixpkgs input
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland.url = "git+https://github.com/hyprwm/Hyprland";
-
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins"; inputs.hyprland.follows = "hyprland";
-    # };
-
-    pyprland.url = "github:hyprland-community/pyprland";
-
-    # split-monitor-workspaces = {
-    #   url = "github:Duckonaut/split-monitor-workspaces";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-
-    hyprswitch.url = "github:h3rmt/hyprswitch/release";
 
     # nbfc-linux = {
     #   url = "github:nbfc-linux/nbfc-linux";
@@ -50,6 +44,7 @@
         inherit system;
         config.allowUnfree = true;
       };
+
       # pkgs-unstable = import nixpkgs-unstable {inherit system; config.allowUnfree = true;};
     in {
       nixosConfigurations = {

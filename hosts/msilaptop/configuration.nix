@@ -9,18 +9,20 @@
     # ./../../modules/nixos/cosmic.nix
     ./../../modules/nixos/hyprland.nix
     ./../../modules/nixos/htop.nix
+    # ./../../modules/nixos/avahi.nix
 
     # ./../../modules/nixos/mount/m1.nix
     ./../../modules/nixos/steam.nix
     # ./../../modules/nixos/nbfc.nix
     ./../../modules/nixos/ssh.nix
     ./../../modules/nixos/docker.nix
+    ./../../modules/nixos/cache.nix
   ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" "zfs" ];
+  boot.supportedFilesystems = [ "ntfs" "zfs" "apfs" ];
 
   networking.hostName = "justin-msi"; # Define your hostname.
   networking.hostId = "37abf3e1";
@@ -33,8 +35,11 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    input = { General = { UserspaceHID = true; }; };
+  };
   services.blueman.enable = true;
   # Set your time zone. time.timeZone = "Asia/Taipei";
   time.timeZone = "Asia/Taipei";
@@ -66,13 +71,13 @@
   };
 
   i18n.inputMethod = {
-    # type = "fcitx5";
-    # enabled = true;
-    enabled = "fcitx5";
+    type = "fcitx5";
+    enable = true;
     fcitx5.addons = with pkgs; [ rime-data fcitx5-gtk fcitx5-rime fcitx5-nord ];
     fcitx5.waylandFrontend = true;
   };
 
+  # 
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -94,7 +99,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -102,17 +107,17 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.justin = {
     isNormalUser = true;
     description = "justin";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs;
-      [
-        #  thunderbird
-      ];
+    # packages = with pkgs;
+    #   [
+    #     #  thunderbird
+    #   ];
   };
 
   # uninstall the nixos documentation
@@ -199,6 +204,7 @@
     meslo-lgs-nf
     wqy_zenhei
     wqy_microhei
+    source-han-sans
   ];
   fonts.fontDir.enable = true;
 

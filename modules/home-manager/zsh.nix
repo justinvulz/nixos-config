@@ -1,10 +1,8 @@
-{pkgs, lib, config, ... }: 
+{ pkgs, lib, config, ... }:
 
 {
-  home.packages = with pkgs; [
-    zsh-powerlevel10k
-  ];
-  
+  home.packages = with pkgs; [ zsh-powerlevel10k ];
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -14,6 +12,7 @@
       ll = "ls -l";
       cls = "clear";
       y = "yazi";
+      zlj = "zellij";
     };
     history = {
       size = 100;
@@ -21,7 +20,7 @@
     };
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "copypath"];
+      plugins = [ "git" "copypath" ];
     };
     plugins = [
       {
