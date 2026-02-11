@@ -1,5 +1,5 @@
 {
-  description = "First test flake";
+  description = "System flake";
 
   inputs = {
     # nixpkgs.url = "nixpkgs/nixos-24.05";

@@ -1,4 +1,10 @@
-{ config, pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
   imports = [
     ./hypr/hyprpaper.nix
     ./hypr/waybar.nix
@@ -7,7 +13,9 @@
 
   programs.kitty = {
     enable = true;
-    settings = { dynamic_background_opacity = true; };
+    settings = {
+      dynamic_background_opacity = true;
+    };
 
   };
 
@@ -35,7 +43,10 @@
         ''
         "$mod, F,fullscreen"
       ];
-      bindm = [ "$mov, mouse:272, movewindow" "$mov, mouse:273, resizewindow" ];
+      bindm = [
+        "$mov, mouse:272, movewindow"
+        "$mov, mouse:273, resizewindow"
+      ];
       bindl = [
         "$mod, $mod_L, exec, pkill rofi || rofi -show drun"
         "$mod, $key, exec, pkill rofi || rofi -show window"
@@ -58,13 +69,16 @@
       ];
 
       general = {
-        "col.active_border" =
-          lib.mkForce "rgb(${config.stylix.base16Scheme.base07})";
+        "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base07})";
       };
 
-      decoration = { "rounding" = 10; };
+      decoration = {
+        "rounding" = 10;
+      };
 
-      input = { follow_mouse = 2; };
+      input = {
+        follow_mouse = 2;
+      };
 
       monitor = [
         "desc:Microstep MSI MP253 PC7H054600589, highrr,auto,1"

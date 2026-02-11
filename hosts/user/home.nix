@@ -43,7 +43,7 @@
   home.packages = with pkgs; [
     # tuxguitar
     discord
-
+    nethack
     # octaveFull # matlab opensource alt
     # ncspot # spotify
     # spotify
@@ -70,17 +70,17 @@
     # onlyoffice-bin
     libreoffice-qt6-fresh
     # s-tui
-    # feh
-    imv
+    feh
+    # imv
 
     # sonusmix
     # qpwgraph
     coppwr
     # cloudflared
-    pitivi
+    pitivi # vedio editor
     prismlauncher # minecraft
-    element-desktop
-    element-web
+    # element-desktop
+    # element-web
     # lunar-client
     # ventoy
     # uxplay

@@ -1,33 +1,41 @@
-
-{ config, pkgs,lib, inputs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-  [ 
+  imports = [
     ./hardware-configuration.nix
+    ./spmodule/nvidia.nix
     # ./../../modules/nixos/sway.nix
     # ./../../modules/nixos/gnome.nix
     # ./../../modules/nixos/cosmic.nix
     ./../../modules/nixos/hyprland.nix
     ./../../modules/nixos/htop.nix
-    ./../../modules/nixos/nvidia.nix
-    
-    ./../../modules/nixos/mount/m1.nix
+    # ./../../modules/nixos/avahi.nix
+
+    # ./../../modules/nixos/mount/m1.nix
     ./../../modules/nixos/steam.nix
-    # ./../../modules/nixos/nbfc.nix
+    ./../../modules/nixos/nbfc.nix
     ./../../modules/nixos/ssh.nix
     ./../../modules/nixos/docker.nix
+    ./../../modules/nixos/cache.nix
   ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" ];
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.device = "/dev/sda";
-  # boot.loader.grub.useOSProber = true;
+  boot.supportedFilesystems = [
+    "ntfs"
+    "zfs"
+    "apfs"
+  ];
 
-  networking.hostName = "justin-nixos"; # Define your hostname.
+  networking.hostName = "justin-msi"; # Define your hostname.
+  networking.hostId = "37abf3e1";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -37,21 +45,26 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    input = {
+      General = {
+        UserspaceHID = true;
+      };
+    };
+  };
   services.blueman.enable = true;
-  # Set your time zone.
+  # Set your time zone. time.timeZone = "Asia/Taipei";
   time.timeZone = "Asia/Taipei";
 
-  # CUP Bootting
-  services.thermald.enable = true; 
+  # CPU thermald Bootting
+  services.thermald.enable = true;
   powerManagement.cpuFreqGovernor = "performance";
 
-  # FIX MSI FAN ?!!!!
+  # fIX MSI FAN ?!!!!
   boot.kernelModules = [ "ec_sys" ];
-  boot.kernelParams = [
-    "ec_sys.write_support=1"
-  ];
+  boot.kernelParams = [ "ec_sys.write_support=1" ];
   # boot.extraModprobeConfig = ''
   #  options ec_sys write_support=1
   # '';
@@ -72,7 +85,8 @@
   };
 
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    type = "fcitx5";
+    enable = true;
     fcitx5.addons = with pkgs; [
       rime-data
       fcitx5-gtk
@@ -82,7 +96,7 @@
     fcitx5.waylandFrontend = true;
   };
 
-  
+  #
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -96,15 +110,16 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  security.pki.certificates = [ (builtins.readFile ../../sarootca.crt) ];
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -112,16 +127,20 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.justin = {
     isNormalUser = true;
     description = "justin";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
+    extraGroups = [
+      "networkmanager"
+      "wheel"
     ];
+    # packages = with pkgs;
+    #   [
+    #     #  thunderbird
+    #   ];
   };
 
   # uninstall the nixos documentation
@@ -131,23 +150,33 @@
   programs.firefox.enable = true;
 
   # Install zsh.
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-  environment.pathsToLink = [ "/share/zsh" ];
-  
+  # programs.zsh.enable = true;
+  # users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.nushell;
+  # environment.pathsToLink = [ "/share/zsh" ];
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim 
+    vim
     wget
     git
     home-manager
     neofetch
   ];
 
+  #mount HDD
+  fileSystems."/home/justin/DATA_HDD" = {
+    device = "/dev/disk/by-uuid/696f17f3-debe-48ac-bee8-e9436a45d789";
+    fsType = "ext4";
+  };
+
+  # vm
+  # virtualisation.virtualbox.host.enable = true;
+  # users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -166,7 +195,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -176,7 +205,10 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # auto delete old generations
   nix.gc = {
@@ -185,20 +217,23 @@
     options = "--delete-older-than 7d";
   };
   nix.optimise.automatic = true;
-  
 
   fonts.packages = with pkgs; [
     noto-fonts-cjk-sans
     noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     liberation_ttf
-    fira-code
-    fira-code-symbols
+    # fira-code
+    # fira-code-symbols
     mplus-outline-fonts.githubRelease
     dina-font
     proggyfonts
     meslo-lgs-nf
+    wqy_zenhei
+    wqy_microhei
+    source-han-sans
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
   ];
   fonts.fontDir.enable = true;
 

@@ -1,4 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -22,7 +28,11 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" "zfs" "apfs" ];
+  boot.supportedFilesystems = [
+    "ntfs"
+    "zfs"
+    "apfs"
+  ];
 
   networking.hostName = "justin-msi"; # Define your hostname.
   networking.hostId = "37abf3e1";
@@ -38,7 +48,11 @@
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
-    input = { General = { UserspaceHID = true; }; };
+    input = {
+      General = {
+        UserspaceHID = true;
+      };
+    };
   };
   services.blueman.enable = true;
   # Set your time zone. time.timeZone = "Asia/Taipei";
@@ -73,11 +87,16 @@
   i18n.inputMethod = {
     type = "fcitx5";
     enable = true;
-    fcitx5.addons = with pkgs; [ rime-data fcitx5-gtk fcitx5-rime fcitx5-nord ];
+    fcitx5.addons = with pkgs; [
+      rime-data
+      fcitx5-gtk
+      fcitx5-rime
+      fcitx5-nord
+    ];
     fcitx5.waylandFrontend = true;
   };
 
-  # 
+  #
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -114,7 +133,10 @@
   users.users.justin = {
     isNormalUser = true;
     description = "justin";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     # packages = with pkgs;
     #   [
     #     #  thunderbird
@@ -183,7 +205,10 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # auto delete old generations
   nix.gc = {
