@@ -10,14 +10,17 @@
     ./../../modules/home-manager/git.nix
     # ./../../modules/home-manager/zsh.nix
     # ./../../modules/home-manager/nixvim.nix
-    ./../../modules/home-manager/hyprland.nix
+
+    # ./../../modules/home-manager/hyprland.nix
+    ./../../modules/home-manager/niri.nix
+    # ./../../modules/home-manager/rofi.nix
+
     ./../../modules/home-manager/stylix.nix
     ./../../modules/home-manager/programming_language.nix
     ./../../modules/home-manager/helix.nix
     ./../../modules/home-manager/zellij.nix
     ./../../modules/home-manager/spicetify.nix
     ./../../modules/home-manager/obs.nix
-    ./../../modules/home-manager/rofi.nix
     ./../../modules/home-manager/nushell.nix
     inputs.zen-browser.homeModules.beta
 
@@ -56,7 +59,7 @@
 
     kdePackages.okular # pdf reader
     # cinnamon.nemo #file browser
-    yazi # file manager
+    # yazi # file manager
     zip
     unzip
     mpv # video player

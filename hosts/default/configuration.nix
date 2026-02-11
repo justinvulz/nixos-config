@@ -9,17 +9,16 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./spmodule/nvidia.nix
     # ./../../modules/nixos/sway.nix
     # ./../../modules/nixos/gnome.nix
     # ./../../modules/nixos/cosmic.nix
-    ./../../modules/nixos/hyprland.nix
+    # ./../../modules/nixos/hyprland.nix
+    ./../../modules/nixos/niri.nix
     ./../../modules/nixos/htop.nix
     # ./../../modules/nixos/avahi.nix
 
     # ./../../modules/nixos/mount/m1.nix
     ./../../modules/nixos/steam.nix
-    ./../../modules/nixos/nbfc.nix
     ./../../modules/nixos/ssh.nix
     ./../../modules/nixos/docker.nix
     ./../../modules/nixos/cache.nix
@@ -34,8 +33,8 @@
     "apfs"
   ];
 
-  networking.hostName = "justin-msi"; # Define your hostname.
-  networking.hostId = "37abf3e1";
+  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostId = "bccd08f1";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -61,14 +60,6 @@
   # CPU thermald Bootting
   services.thermald.enable = true;
   powerManagement.cpuFreqGovernor = "performance";
-
-  # fIX MSI FAN ?!!!!
-  boot.kernelModules = [ "ec_sys" ];
-  boot.kernelParams = [ "ec_sys.write_support=1" ];
-  # boot.extraModprobeConfig = ''
-  #  options ec_sys write_support=1
-  # '';
-  # Select internationalisation properties.
 
   i18n.defaultLocale = "en_US.UTF-8";
 

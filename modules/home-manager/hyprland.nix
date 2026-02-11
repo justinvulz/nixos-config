@@ -6,9 +6,10 @@
 }:
 {
   imports = [
-    ./hypr/hyprpaper.nix
-    ./hypr/waybar.nix
+    ./wm/hyprpaper.nix
+    ./wm/waybar.nix
     # ./hypr/pypr.nix
+    ./wm/misc.nix
   ];
 
   programs.kitty = {
@@ -93,15 +94,4 @@
 
   # xdg.configFile."rofi/config.rasi".source = ../../config/rofi/config.rasi;
 
-  services.dunst = {
-    enable = true;
-    # defaultEditor = true;
-  };
-  home.packages = with pkgs; [
-    # pyprland
-    wlogout
-    # hypridle
-    wev
-    # inputs.hyprswitch.packages.x86_64-linux.default
-  ];
 }

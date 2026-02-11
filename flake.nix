@@ -71,7 +71,13 @@
             ./hosts/msilaptop/configuration.nix
           ];
         };
-
+        default = lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/default/configuration.nix
+          ];
+        };
       };
       homeConfigurations = {
         justin = home-manager.lib.homeManagerConfiguration {
