@@ -1,4 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
 
@@ -14,8 +20,20 @@
   # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml\n";
 
   # stylix.targets.nixvim.enable = false;
-  stylix.targets.helix.enable = false;
-  stylix.targets.spicetify.enable = false;
+  # stylix.targets.helix.enable = false;
+  # stylix.targets.spicetify.enable = false;
+  # stylix.targets.starship.enable = false;
+  # stylix.targets.waybar.enable = false;
+  stylix.targets = {
+    helix.enable = false;
+    spicetify.enable = false;
+    starship.enable = false;
+    waybar.enable = false;
+    zellij.enable = false;
+    zen-browser.enable = false;
+
+  };
+  # stylix.targets.zen-browser.profileNames = [ "Default Profile" ];
   # stylix.targets.rofi.enable = false;
 
   stylix.base16Scheme = {
@@ -55,7 +73,7 @@
     };
 
     emoji = {
-      package = pkgs.noto-fonts-emoji;
+      package = pkgs.noto-fonts-color-emoji;
       name = "Noto Color Emoji";
     };
   };

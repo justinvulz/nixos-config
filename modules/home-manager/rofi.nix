@@ -3,7 +3,7 @@ let inherit (config.lib.formats.rasi) mkLiteral;
 in {
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
+    package = pkgs.rofi;
     terminal = "${pkgs.kitty}/bin/kitty";
     extraConfig = {
       modi = "drun";
@@ -12,7 +12,7 @@ in {
       drun-display-format = "{icon}   {name}";
       disable-history = false;
       hide-scrollbar = true;
-      display-drun = "   Apps ";
+      display-drun = "   Apps ";
       display-window = " 🗗  Wins ";
       # sidebar-mode = true;
     };

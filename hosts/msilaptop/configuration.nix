@@ -13,7 +13,7 @@
 
     # ./../../modules/nixos/mount/m1.nix
     ./../../modules/nixos/steam.nix
-    # ./../../modules/nixos/nbfc.nix
+    ./../../modules/nixos/nbfc.nix
     ./../../modules/nixos/ssh.nix
     ./../../modules/nixos/docker.nix
     ./../../modules/nixos/cache.nix
@@ -93,6 +93,7 @@
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  security.pki.certificates = [ (builtins.readFile ../../sarootca.crt) ];
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -127,9 +128,10 @@
   programs.firefox.enable = true;
 
   # Install zsh.
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-  environment.pathsToLink = [ "/share/zsh" ];
+  # programs.zsh.enable = true;
+  # users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.nushell;
+  # environment.pathsToLink = [ "/share/zsh" ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -194,10 +196,10 @@
   fonts.packages = with pkgs; [
     noto-fonts-cjk-sans
     noto-fonts
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     liberation_ttf
-    fira-code
-    fira-code-symbols
+    # fira-code
+    # fira-code-symbols
     mplus-outline-fonts.githubRelease
     dina-font
     proggyfonts
@@ -205,6 +207,8 @@
     wqy_zenhei
     wqy_microhei
     source-han-sans
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
   ];
   fonts.fontDir.enable = true;
 

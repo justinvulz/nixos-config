@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
 
   imports = [ ./helix/snippets.nix ];
   home.packages = with pkgs; [
@@ -34,14 +35,21 @@
         end-of-line-diagnostics = "hint";
         line-number = "relative";
         true-color = true;
+
       };
 
       keys.normal = {
-        X = [ "extend_line_up" "extend_to_line_bounds" ];
+        X = [
+          "extend_line_up"
+          "extend_to_line_bounds"
+        ];
         A-x = "extend_to_line_bounds";
       };
       keys.select = {
-        X = [ "extend_line_up" "extend_to_line_bounds" ];
+        X = [
+          "extend_line_up"
+          "extend_to_line_bounds"
+        ];
         A-x = "extend_to_line_bounds";
       };
     };
@@ -53,7 +61,6 @@
           auto-format = true;
           formatter.command = "${pkgs.nixfmt}/bin/nixfmt";
         }
-
         {
           name = "html";
           auto-format = false;
@@ -61,13 +68,23 @@
         { name = "cpp"; }
         {
           name = "lean";
-          language-servers = [ "scls" "lean" ];
+          language-servers = [
+            "scls"
+            "lean"
+          ];
         }
         {
           name = "python";
           indent = {
             tab-width = 2;
-            unit = "  ";
+            unit = " ";
+          };
+        }
+        {
+          name = "json";
+          indent = {
+            tab-width = 4;
+            unit = " ";
           };
         }
       ];
