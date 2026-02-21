@@ -78,13 +78,13 @@
   i18n.inputMethod = {
     type = "fcitx5";
     enable = true;
+    fcitx5.waylandFrontend = true;
     fcitx5.addons = with pkgs; [
       rime-data
-      fcitx5-gtk
       fcitx5-rime
+      fcitx5-gtk
       fcitx5-nord
     ];
-    fcitx5.waylandFrontend = true;
   };
 
   #
@@ -93,7 +93,8 @@
     layout = "us";
     variant = "";
   };
-
+  services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
   # Enable polkit for allowing unprivileged users to run administrative tasks.
   security.polkit.enable = true;
 
@@ -160,10 +161,6 @@
   ];
 
   #mount HDD
-  fileSystems."/home/justin/DATA_HDD" = {
-    device = "/dev/disk/by-uuid/696f17f3-debe-48ac-bee8-e9436a45d789";
-    fsType = "ext4";
-  };
 
   # vm
   # virtualisation.virtualbox.host.enable = true;

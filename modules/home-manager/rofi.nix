@@ -4,7 +4,7 @@ in {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi;
-    terminal = "${pkgs.kitty}/bin/kitty";
+    # terminal = "${pkgs.kitty}/bin/kitty";
     extraConfig = {
       modi = "drun";
       font = "Noto Sans 15";

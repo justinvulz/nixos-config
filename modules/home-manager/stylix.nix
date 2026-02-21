@@ -10,7 +10,7 @@
 
   stylix.enable = true;
   stylix.polarity = "dark";
-  stylix.image = ./../../config/wallpaper/snow.jpg;
+  # stylix.image = ./../../config/wallpaper/snow.jpg;
   # stylix.image = ./../../config/wallpaper/ave_mv_m.png;
 
   stylix.cursor.package = pkgs.bibata-cursors;

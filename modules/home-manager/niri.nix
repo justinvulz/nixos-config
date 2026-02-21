@@ -6,25 +6,35 @@
 }:
 {
   imports = [
-    ./wm/hyprpaper.nix
+    # ./wm/hyprpaper.nix
     ./wm/waybar.nix
     ./wm/misc.nix
   ];
 
   programs.fuzzel.enable = true;
 
-  programs.kitty = {
+  xdg.configFile."niri/config.kdl".source = ../../config/niri/config.kdl;
+  xdg.portal = {
     enable = true;
-    settings = {
-      dynamic_background_opacity = true;
-    };
-
+    config.common.default = [ "gnome" ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
+    ];
   };
+  programs.alacritty = {
+    enable = true;
+    settings = lib.mkForce {
+      window.decorations = "None";
+    };
+  };
+  #wallpaper
 
-  xdg.configFile."niri/config.kdl".source = ../../config/rofi/config.rasi;
   home.packages = with pkgs; [
-    alacritty # terminal
     xwayland-satellite
+    gnome-keyring
+    nautilus
+    swaybg
   ];
 
 }

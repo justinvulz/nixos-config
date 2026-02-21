@@ -1,10 +1,10 @@
+output "HDMI-A-1" {
+    mode "2560x1440@144.000"
+    
+}
+
 input {
     keyboard {
-        xkb {
-            layout "us,es"
-            options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
-        }
-        numlock
     }
 
     mouse {
@@ -41,9 +41,10 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
-spawn-sh-at-startup "hyprpaper"
+// spawn-sh-at-startup "hyprpaper"
 spawn-at-startup "dunst"
 spawn-at-startup "fcitx5 -rd"
+spawn-sh-at-startup "swaybg -i ~/nixos-config/config/wallpaper/p.jpg -m fill"
 
 binds {
     // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
@@ -59,11 +60,23 @@ binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    Super+D { spawn "fuzzel"; }
+    Super+Q { close-window; }
+
+    Mod+J { focus-workspace-down; }
+    Mod+K { focus-workspace-up; }
+    Mod+L { focus-column-right; }
+    Mod+H { focus-column-left; }
+
+    Mod+Shift+S { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy && wl-paste > ~/Picture/Screenshots/Screenshot-$(date +%F_%T).png | dunstify \"Screenshot of the region taken\" -t 1000 # screenshot of a region"; }
 
 }
 // 
 // Put swaybg inside the overview backdrop.
 layer-rule {
-    match namespace="hyprpaper"
+    match namespace="^wallpaper$"
     place-within-backdrop true
+}
+layout {
+    background-color "transparent"
 }

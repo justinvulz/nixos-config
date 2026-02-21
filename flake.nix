@@ -71,7 +71,7 @@
             ./hosts/msilaptop/configuration.nix
           ];
         };
-        default = lib.nixosSystem {
+        nixos = lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
