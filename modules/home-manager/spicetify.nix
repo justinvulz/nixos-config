@@ -1,7 +1,15 @@
-{ config, pkgs, inputs, ... }: {
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+{
   programs.spicetify =
-    let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-    in {
+    let
+      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+    in
+    {
       enable = true;
 
       enabledExtensions = with spicePkgs.extensions; [
@@ -11,9 +19,12 @@
 
       ];
       # enabledCustomApps = with spicePkgs.apps; [ marketplace ];
-      enabledSnippets = with spicePkgs.snippets; [ rotatingCoverart pointer ];
+      enabledSnippets = with spicePkgs.snippets; [
+        rotatingCoverart
+        pointer
+      ];
 
-      theme = spicePkgs.themes.catppuccin;
-      colorScheme = "mocha";
+      # theme = spicePkgs.themes.catppuccin;
+      # colorScheme = "mocha";
     };
 }
