@@ -26,9 +26,11 @@
 
   ];
   programs.zen-browser.enable = true;
+  programs.zen-browser.suppressXdgMigrationWarning = true;
   programs.yazi = {
     enable = true;
     enableNushellIntegration = true;
+    shellWrapperName = "y";
   };
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -44,7 +46,11 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
+
+    pciutils
+    opencode
     # tuxguitar
+    audacity
     discord
     nethack
     # octaveFull # matlab opensource alt
@@ -95,18 +101,37 @@
   programs.btop.settings = lib.mkForce { color_theme = "Default"; };
   # services.spotifyd.enable = true;
   xdg.enable = true;
-  # xdg.mimeApps = {
-  #   enable = true;
-  #   defaultApplications = {
-  #     "x-scheme-handler/io.element.desktop" = "element-desktop.desktop";
-  #     "x-scheme-handler/element" = "element-desktop.desktop";
-  #     "x-scheme-handler/http" = "firefox.desktop";
-  #     "application/pdf" = [ "okularApplication_pdf.desktop" ];
-  #   };
-  #   associations.added = {
-  #     "application/pdf" = [ "okularApplication_pdf.desktop" ];
-  #   };
-  # };
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "application/pdf" = [ "okularApplication_pdf.desktop" ];
+      "x-scheme-handler/http" = [ "zen-beta.desktop" ];
+      "x-scheme-handler/https" = [ "zen-beta.desktop" ];
+      "x-scheme-handler/chrome" = [ "zen-beta.desktop" ];
+      "text/html" = [ "zen-beta.desktop" ];
+      "application/x-extension-htm" = [ "zen-beta.desktop" ];
+      "application/x-extension-html" = [ "zen-beta.desktop" ];
+      "application/x-extension-shtml" = [ "zen-beta.desktop" ];
+      "application/xhtml+xml" = [ "zen-beta.desktop" ];
+      "application/x-extension-xhtml" = [ "zen-beta.desktop" ];
+      "application/x-extension-xht" = [ "zen-beta.desktop" ];
+
+    };
+    associations.added = {
+      "application/pdf" = [ "okularApplication_pdf.desktop" ];
+      "x-scheme-handler/http" = [ "zen-beta.desktop" ];
+      "x-scheme-handler/https" = [ "zen-beta.desktop" ];
+      "x-scheme-handler/chrome" = [ "zen-beta.desktop" ];
+      "text/html" = [ "zen-beta.desktop" ];
+      "application/x-extension-htm" = [ "zen-beta.desktop" ];
+      "application/x-extension-html" = [ "zen-beta.desktop" ];
+      "application/x-extension-shtml" = [ "zen-beta.desktop" ];
+      "application/xhtml+xml" = [ "zen-beta.desktop" ];
+      "application/x-extension-xhtml" = [ "zen-beta.desktop" ];
+      "application/x-extension-xht" = [ "zen-beta.desktop" ];
+    };
+
+  };
   #
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

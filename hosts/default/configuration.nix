@@ -22,6 +22,9 @@
     ./../../modules/nixos/ssh.nix
     ./../../modules/nixos/docker.nix
     ./../../modules/nixos/cache.nix
+    # ./../../modules/nixos/ollama.nix
+    ./../../modules/nixos/i2p.nix
+    ./spmodule/amd.nix
   ];
 
   # Bootloader.
@@ -94,7 +97,6 @@
     variant = "";
   };
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
   # Enable polkit for allowing unprivileged users to run administrative tasks.
   security.polkit.enable = true;
 
@@ -158,6 +160,8 @@
     git
     home-manager
     neofetch
+    rocmPackages.amdsmi
+    # amdsmi
   ];
 
   #mount HDD
@@ -219,9 +223,13 @@
     meslo-lgs-nf
     wqy_zenhei
     wqy_microhei
-    source-han-sans
     nerd-fonts.fira-code
     nerd-fonts.fira-mono
+    roboto
+    source-sans-pro
+    source-sans
+    source-han-sans
+    font-awesome
   ];
   fonts.fontDir.enable = true;
 

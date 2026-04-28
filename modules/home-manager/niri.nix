@@ -11,7 +11,17 @@
     ./wm/misc.nix
   ];
 
-  programs.fuzzel.enable = true;
+  programs.fuzzel = {
+    enable = true;
+    settings = {
+      main = {
+        terminal = "kitty -e";
+        width = 50;
+        # vertical-pad = 10;
+        horizontal-pad = 15;
+      };
+    };
+  };
 
   xdg.configFile."niri/config.kdl".source = ../../config/niri/config.kdl;
   xdg.portal = {
@@ -22,19 +32,29 @@
       xdg-desktop-portal-gnome
     ];
   };
-  programs.alacritty = {
+  programs.kitty = {
     enable = true;
-    settings = lib.mkForce {
-      window.decorations = "None";
+    settings = {
+      dynamic_background_opacity = true;
+
     };
+
   };
-  #wallpaper
+
+  # programs.alacritty = {
+  #   enable = true;
+  #   settings = lib.mkForce {
+  #     window.decorations = "None";
+  #   };
+  # };
+  # wallpaper
 
   home.packages = with pkgs; [
     xwayland-satellite
     gnome-keyring
     nautilus
     swaybg
+    ueberzugpp
   ];
 
 }

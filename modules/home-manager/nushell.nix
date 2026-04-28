@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   # home.packages = [ pkgs.starship ];
@@ -7,14 +12,14 @@
       enable = true;
       # The config.nu can be anywhere you want if you like to edit your Nushell with Nu
       configFile.source = ./../../config/nushell/conf.nu;
-      # for editing directly to config.nu 
+      # for editing directly to config.nu
       # extraConfig = ''
       # '';
       shellAliases = {
         vi = "hx";
         vim = "hx";
         nano = "hx";
-        y = "yazi";
+        # y = "yazi";
         zlj = "zellij";
         cls = "clear";
         nix-shell = "nix-shell --run nu";

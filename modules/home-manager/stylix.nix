@@ -31,11 +31,22 @@
     starship.enable = false;
     waybar.enable = false;
     zellij.enable = false;
-    # zen-browser.enable = false;
+    zen-browser.enable = false;
+    fuzzel = {
+      fonts.override = {
+        sizes.popups = 11;
+      };
+    };
+    kitty = {
+      fonts.override = {
+        sizes.terminal = 11;
+      };
+    };
 
   };
-  # stylix.targets.zen-browser.profileNames = [ "Default Profile" ];
-  # stylix.targets.rofi.enable = false;
+  stylix.targets.zen-browser.profileNames = [
+    "Default"
+  ];
 
   # stylix.base16Scheme = {
   #   base00 = "202020";

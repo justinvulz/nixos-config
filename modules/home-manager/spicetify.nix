@@ -20,7 +20,7 @@
       ];
       # enabledCustomApps = with spicePkgs.apps; [ marketplace ];
       enabledSnippets = with spicePkgs.snippets; [
-        rotatingCoverart
+        # rotatingCoverart
         pointer
       ];
 

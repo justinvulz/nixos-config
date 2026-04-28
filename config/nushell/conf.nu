@@ -33,4 +33,7 @@ def ll [--all(-a), ...pattern]  {
   }
 }
 
+def zzip [...args: any] {
+    ^zip ...$args
+}
 

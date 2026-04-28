@@ -2,6 +2,7 @@
 * {
   font-family: 'SF Pro Text', 'Inter', 'Segoe UI, NotoSans Nerd Font', sans-serif;
   font-size: 16px;
+  font-weight: bold;
   min-height: 0;
   padding-right: 0px;
   padding-left: 0px;
@@ -12,7 +13,7 @@
 #waybar {
   background: transparent;
   color: #c6d0f5;
-  margin: 0px;
+  margin: 4px;
   font-weight: 500;
 }
 
@@ -147,7 +148,7 @@
 
 #clock {
   color: #99d1db;
-  font-weight: 500;
+  /* font-weight: 500; */
 }
 
 #pulseaudio {

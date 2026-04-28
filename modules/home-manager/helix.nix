@@ -44,6 +44,7 @@
           "extend_to_line_bounds"
         ];
         A-x = "extend_to_line_bounds";
+        A-s = "save_selection";
       };
       keys.select = {
         X = [
@@ -77,14 +78,14 @@
           name = "python";
           indent = {
             tab-width = 2;
-            unit = " ";
+            unit = "  ";
           };
         }
         {
           name = "json";
           indent = {
             tab-width = 4;
-            unit = " ";
+            unit = "    ";
           };
         }
       ];
