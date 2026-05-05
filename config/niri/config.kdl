@@ -141,6 +141,12 @@ window-rule {
     exclude title="子母畫面"
     open-maximized true
 }
+
+window-rule {
+    match app-id="dev.zed.Zed"
+    open-maximized true
+}
+
 window-rule {
     match title="子母畫面"
     default-column-width { fixed 750; }

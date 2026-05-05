@@ -159,7 +159,7 @@
     wget
     git
     home-manager
-    neofetch
+    fastfetch
     rocmPackages.amdsmi
     # amdsmi
   ];

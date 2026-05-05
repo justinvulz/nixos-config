@@ -1,9 +1,9 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+{
 
   programs.hyprland = {
     enable = true;
-    package =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default;
     portalPackage =
       inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
@@ -12,19 +12,17 @@
     enable = true;
     settings = {
       default_session = {
-        command =
-          "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
         user = "greeter";
       };
     };
   };
 
-  environment.systemPackages = with pkgs;
-    [
-      greetd.tuigreet
+  environment.systemPackages = with pkgs; [
+    greetd.tuigreet
 
-      #   inputs.hyprswitch.packages.x86_64-linux.default
-    ];
+    #   inputs.hyprswitch.packages.x86_64-linux.default
+  ];
 
   # nix.settings = {
   #   substituters = [ "https://hyprland.cachix.org" ];
@@ -37,4 +35,3 @@
   hardware.nvidia.powerManagement.enable = true;
   hardware.nvidia.open = false;
 }
-

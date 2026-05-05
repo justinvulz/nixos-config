@@ -58,12 +58,6 @@
     {
       nixosConfigurations = {
 
-        # justin-nixos = lib.nixosSystem {
-        #   system = "x86_64-linux";
-        #   specialArgs = { inherit inputs; };
-        #   modules = [ ./hosts/default/configuration.nix ];
-        # };
-
         justin-msi = lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };

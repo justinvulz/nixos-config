@@ -7,6 +7,7 @@
 
 {
   imports = [
+    inputs.zen-browser.homeModules.beta
     ./../../modules/home-manager/git.nix
     # ./../../modules/home-manager/zsh.nix
     # ./../../modules/home-manager/nixvim.nix
@@ -22,11 +23,10 @@
     ./../../modules/home-manager/spicetify.nix
     ./../../modules/home-manager/obs.nix
     ./../../modules/home-manager/nushell.nix
-    inputs.zen-browser.homeModules.beta
+    ./../../modules/home-manager/zed.nix
 
   ];
   programs.zen-browser.enable = true;
-  programs.zen-browser.suppressXdgMigrationWarning = true;
   programs.yazi = {
     enable = true;
     enableNushellIntegration = true;
@@ -34,6 +34,7 @@
   };
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
+  gtk.gtk4.theme = null;
   home.username = "justin";
   home.homeDirectory = "/home/justin";
   # This value determines the Home Manager release that your configuration is
@@ -48,7 +49,6 @@
   home.packages = with pkgs; [
 
     pciutils
-    opencode
     # tuxguitar
     audacity
     discord
