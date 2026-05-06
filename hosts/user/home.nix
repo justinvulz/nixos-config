@@ -48,7 +48,7 @@
 
   home.packages = with pkgs; [
 
-    pciutils
+    # pciutils
     # tuxguitar
     audacity
     discord

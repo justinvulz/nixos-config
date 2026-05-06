@@ -24,6 +24,7 @@
     ./../../modules/nixos/cache.nix
     # ./../../modules/nixos/ollama.nix
     ./../../modules/nixos/i2p.nix
+    ./../../modules/nixos/fonts.nix
     ./spmodule/amd.nix
   ];
 
@@ -106,7 +107,6 @@
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  security.pki.certificates = [ (builtins.readFile ../../sarootca.crt) ];
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -154,7 +154,10 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  services.ratbagd.enable = true;
   environment.systemPackages = with pkgs; [
+    piper
+    usbutils
     vim
     wget
     git
@@ -209,28 +212,5 @@
     options = "--delete-older-than 7d";
   };
   nix.optimise.automatic = true;
-
-  fonts.packages = with pkgs; [
-    noto-fonts-cjk-sans
-    noto-fonts
-    noto-fonts-color-emoji
-    liberation_ttf
-    # fira-code
-    # fira-code-symbols
-    mplus-outline-fonts.githubRelease
-    dina-font
-    proggyfonts
-    meslo-lgs-nf
-    wqy_zenhei
-    wqy_microhei
-    nerd-fonts.fira-code
-    nerd-fonts.fira-mono
-    roboto
-    source-sans-pro
-    source-sans
-    source-han-sans
-    font-awesome
-  ];
-  fonts.fontDir.enable = true;
 
 }

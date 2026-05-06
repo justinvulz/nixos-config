@@ -112,7 +112,6 @@
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  security.pki.certificates = [ (builtins.readFile ../../sarootca.crt) ];
   services.pipewire = {
     enable = true;
     alsa.enable = true;
