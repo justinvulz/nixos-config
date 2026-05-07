@@ -52,11 +52,10 @@
         config.allowUnfree = true;
       };
       loader = import ./utils/loader.nix { inherit lib; };
-
     in
     {
-      homeModules = loader.makeModuleSet ./modules/home-manager;
-      nixosModules = loader.makeModuleSet ./modules/nixos;
+      homeModules = loader.mkModuleTree ./modules/home-manager;
+      nixosModules = loader.mkModuleTree ./modules/nixos;
 
       nixosConfigurations = {
 

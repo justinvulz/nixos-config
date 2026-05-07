@@ -17,7 +17,7 @@
     steam
     ssh
     docker
-    cache
+    # cache
     i2p
     fonts
     ratbagd

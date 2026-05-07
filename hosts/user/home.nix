@@ -13,7 +13,7 @@
   ++ (with inputs.self.homeModules; [
     git
     niri
-    programming_language
+    programming-language
     helix
     zellij
     spicetify
