@@ -51,10 +51,13 @@
         inherit system;
         config.allowUnfree = true;
       };
+      loader = import ./lib/loader.nix { inherit lib; };
 
-      # pkgs-unstable = import nixpkgs-unstable {inherit system; config.allowUnfree = true;};
     in
     {
+      homeModules = loader.makeModuleSet ./modules/home-manager;
+      nixosModules = loader.makeModuleSet ./modules/nixos;
+
       nixosConfigurations = {
 
         justin-msi = lib.nixosSystem {
