@@ -1,33 +1,32 @@
 {
-  lib,
   pkgs,
   inputs,
   ...
 }:
-let
-  mapImport = moduleBase: pathList: map (name: moduleBase + "/${name}.nix") pathList;
-  hmModules = mapImport ./../../modules/home-manager [
-    "git"
-    "niri"
-    "programming_language"
-    "helix"
-    "zellij"
-    "spicetify"
-    "obs"
-    "nushell"
-    "zed"
-    "zen-browser"
-    "yazi"
-    "btop"
-    "stylix"
-  ];
-
-in
 {
   imports = [
     inputs.zen-browser.homeModules.beta
+    inputs.stylix.homeModules.stylix
+    inputs.spicetify-nix.homeManagerModules.default
+
   ]
-  ++ hmModules;
+  ++ (with inputs.self.homeModules; [
+    git
+    niri
+    programming_language
+    helix
+    zellij
+    spicetify
+    obs
+    nushell
+    zed
+    zen-browser
+    yazi
+    btop
+    stylix
+    xdg
+  ]);
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   gtk.gtk4.theme = null;
@@ -85,38 +84,6 @@ in
     # vdhcoapp
   ];
 
-  xdg.enable = true;
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "application/pdf" = [ "okularApplication_pdf.desktop" ];
-      "x-scheme-handler/http" = [ "zen-beta.desktop" ];
-      "x-scheme-handler/https" = [ "zen-beta.desktop" ];
-      "x-scheme-handler/chrome" = [ "zen-beta.desktop" ];
-      "text/html" = [ "zen-beta.desktop" ];
-      "application/x-extension-htm" = [ "zen-beta.desktop" ];
-      "application/x-extension-html" = [ "zen-beta.desktop" ];
-      "application/x-extension-shtml" = [ "zen-beta.desktop" ];
-      "application/xhtml+xml" = [ "zen-beta.desktop" ];
-      "application/x-extension-xhtml" = [ "zen-beta.desktop" ];
-      "application/x-extension-xht" = [ "zen-beta.desktop" ];
-
-    };
-    associations.added = {
-      "application/pdf" = [ "okularApplication_pdf.desktop" ];
-      "x-scheme-handler/http" = [ "zen-beta.desktop" ];
-      "x-scheme-handler/https" = [ "zen-beta.desktop" ];
-      "x-scheme-handler/chrome" = [ "zen-beta.desktop" ];
-      "text/html" = [ "zen-beta.desktop" ];
-      "application/x-extension-htm" = [ "zen-beta.desktop" ];
-      "application/x-extension-html" = [ "zen-beta.desktop" ];
-      "application/x-extension-shtml" = [ "zen-beta.desktop" ];
-      "application/xhtml+xml" = [ "zen-beta.desktop" ];
-      "application/x-extension-xhtml" = [ "zen-beta.desktop" ];
-      "application/x-extension-xht" = [ "zen-beta.desktop" ];
-    };
-
-  };
   #
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

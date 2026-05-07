@@ -51,7 +51,7 @@
         inherit system;
         config.allowUnfree = true;
       };
-      loader = import ./lib/loader.nix { inherit lib; };
+      loader = import ./utils/loader.nix { inherit lib; };
 
     in
     {
@@ -80,8 +80,6 @@
           inherit pkgs;
           extraSpecialArgs = { inherit inputs; };
           modules = [
-            inputs.stylix.homeModules.stylix
-            inputs.spicetify-nix.homeManagerModules.default
             ./hosts/user/home.nix
           ];
         };
