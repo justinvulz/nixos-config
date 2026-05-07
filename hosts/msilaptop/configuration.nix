@@ -17,7 +17,6 @@
     ./../../modules/nixos/htop.nix
     # ./../../modules/nixos/avahi.nix
 
-    # ./../../modules/nixos/mount/m1.nix
     ./../../modules/nixos/steam.nix
     ./../../modules/nixos/nbfc.nix
     ./../../modules/nixos/ssh.nix
@@ -171,6 +170,9 @@
   fileSystems."/home/justin/DATA_HDD" = {
     device = "/dev/disk/by-uuid/696f17f3-debe-48ac-bee8-e9436a45d789";
     fsType = "ext4";
+    options = [
+      "nofail"
+    ];
   };
 
   # vm

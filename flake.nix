@@ -61,20 +61,21 @@
       nixosConfigurations = {
 
         justin-msi = lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/msilaptop/configuration.nix
           ];
         };
         nixos = lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/default/configuration.nix
           ];
         };
       };
+
       homeConfigurations = {
         justin = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
