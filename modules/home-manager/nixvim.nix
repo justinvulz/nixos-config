@@ -1,11 +1,11 @@
 {
   nixvim =
-    { pkgs, lib, ... }:
+    { inputs, ... }:
     {
 
-      imports = [
-        ./nixvim/lsp.nix
-        ./nixvim/keymap.nix
+      imports = with inputs.self.homeModules.nixvimModules; [
+        keymap
+        lsp
       ];
 
       programs.nixvim = {

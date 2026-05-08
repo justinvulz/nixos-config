@@ -19,14 +19,6 @@ let
     else
       lib.nameValuePair "__ignore__" null;
 
-  mergeModule = (
-    path: name: values:
-    if (builtins.length values) > 1 then
-      builtins.throw "Duplicate module '${name}' found in ${path}"
-    else
-      builtins.head values
-  );
-
   processDir =
     path:
     path
@@ -35,7 +27,7 @@ let
     |> lib.filterAttrs (n: v: n != "__ignore__" && v != { })
     |> builtins.attrValues # [ {ModuleName = {}}, func ]
     |> lib.filter builtins.isAttrs # [ {ModuleName = {}} ]
-    |> builtins.zipAttrsWith (mergeModule path);
+    |> lib.foldl' lib.recursiveUpdate { };
 
 in
 {

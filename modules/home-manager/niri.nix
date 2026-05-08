@@ -1,16 +1,15 @@
 {
   niri =
     {
-      config,
+      inputs,
       pkgs,
-      lib,
       ...
     }:
     {
-      imports = [
-        # ./wm/hyprpaper.nix
-        ./wm/waybar.nix
-        ./wm/misc.nix
+      imports = with inputs.self.homeModules.wmModules; [
+        misc
+        waybar
+
       ];
 
       programs.fuzzel = {
