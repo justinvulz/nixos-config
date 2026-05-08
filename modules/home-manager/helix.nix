@@ -1,9 +1,16 @@
 {
   helix =
-    { pkgs, lib, ... }:
+    {
+      pkgs,
+      lib,
+      inputs,
+      ...
+    }:
     {
 
-      imports = [ ./helix/snippets.nix ];
+      imports = with inputs.self.homeModules.helixModules; [
+        snippets
+      ];
       home.packages = with pkgs; [
         # lsp
         nil # nix
