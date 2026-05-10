@@ -22,11 +22,8 @@
     { pkgs, ... }:
     {
       home.packages = with pkgs; [
-        #gnat14
         typst
         lean4
-        #rustc
-        #cargo
       ];
 
     };
@@ -50,8 +47,6 @@
     {
       programs.git = {
         enable = lib.mkDefault true;
-        # userName = lib.mkDefault "justinChen";
-        # userEmail = lib.mkDefault "justin.chen@thinktrace.com";
         signing.format = null;
         settings = {
           init.defaultBranch = "main";

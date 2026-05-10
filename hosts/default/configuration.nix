@@ -18,7 +18,7 @@
     ssh
     docker
     # cache
-    i2p
+    # i2p
     fonts
     ratbagd
   ]);
