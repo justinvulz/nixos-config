@@ -7,8 +7,8 @@
       boot.loader.efi.canTouchEfiVariables = true;
       boot.supportedFilesystems = [
         "ntfs"
-        "zfs"
-        "apfs"
+        # "zfs"
+        # "apfs"
       ];
 
       networking.networkmanager.enable = true;

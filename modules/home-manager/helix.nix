@@ -14,6 +14,7 @@
       home.packages = with pkgs; [
         # lsp
         nil # nix
+        # nixd
         # clang
         # clang-tools
         # bear
