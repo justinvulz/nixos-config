@@ -8,7 +8,7 @@
     inputs.zen-browser.homeModules.beta
     inputs.stylix.homeModules.stylix
     inputs.spicetify-nix.homeManagerModules.default
-
+    # inputs.vellum.homeManagerModules.default
   ]
   ++ (with inputs.self.homeModules; [
     git
@@ -25,8 +25,11 @@
     btop
     stylix
     xdg
+    # opencode
+    claude-code
+    gemini-cli
   ]);
-
+  # programs.vellum.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   gtk.gtk4.theme = null;

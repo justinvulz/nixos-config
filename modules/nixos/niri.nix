@@ -14,6 +14,7 @@
         };
       };
 
+      environment.variables.NIXOS_OZONE_WL = "1";
       environment.systemPackages = with pkgs; [
         tuigreet
         #   inputs.hyprswitch.packages.x86_64-linux.default

@@ -34,6 +34,7 @@
         waybar.enable = false;
         zellij.enable = false;
         zen-browser.enable = false;
+        opencode.enable = false;
         fuzzel = {
           fonts.override = {
             sizes.popups = 11;
