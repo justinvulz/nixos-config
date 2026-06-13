@@ -19,15 +19,15 @@
     spicetify
     obs
     nushell
-    zed
+    # zed
     zen-browser
     yazi
     btop
     stylix
     xdg
     # opencode
-    claude-code
-    gemini-cli
+    # claude-code
+    # gemini-cli
   ]);
   # programs.vellum.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
@@ -40,7 +40,7 @@
 
     # pciutils
     # tuxguitar
-    audacity
+    # audacity
     discord
     nethack
     # octaveFull # matlab opensource alt
@@ -48,7 +48,7 @@
     # spotify
     # system tool
     lshw
-    lm_sensors
+    # lm_sensors
     nvtopPackages.full
     parted # disk part
     # gpu-burn
