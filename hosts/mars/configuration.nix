@@ -47,7 +47,7 @@
     wget
     git
     home-manager
-    neofetch
+    fastfetch
   ];
 
   #mount HDD
