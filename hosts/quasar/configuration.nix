@@ -24,7 +24,7 @@
     ratbagd
   ]);
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "quasar"; # Define your hostname.
   networking.hostId = "bccd08f1";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

@@ -49,7 +49,7 @@
     # system tool
     lshw
     lm_sensors
-    nvtopPackages.full
+    nvtopPackages.amd
     parted # disk part
     # gpu-burn
 
@@ -72,6 +72,7 @@
     feh
     # imv
 
+    localsend
     # sonusmix
     # qpwgraph
     coppwr

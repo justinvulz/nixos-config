@@ -64,28 +64,35 @@
 
       nixosConfigurations = {
 
-        justin-msi = lib.nixosSystem {
+        mars = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/msilaptop/configuration.nix
+            ./hosts/mars/configuration.nix
           ];
         };
-        nixos = lib.nixosSystem {
+        quasar = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/default/configuration.nix
+            ./hosts/quasar/configuration.nix
           ];
         };
       };
 
       homeConfigurations = {
-        justin = home-manager.lib.homeManagerConfiguration {
+        "justin@quasar" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit inputs; };
           modules = [
-            ./hosts/user/home.nix
+            ./hosts/quasar/home.nix
+          ];
+        };
+        "justin@mars" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/mars/home.nix
           ];
         };
       };
