@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }:
 
@@ -18,7 +19,6 @@
     docker
     fonts
     ratbagd
-    nbfc
   ]);
 
   # Bootloader.
@@ -27,8 +27,12 @@
   networking.hostId = "37abf3e1";
 
   # fIX MSI FAN ?!!!!
-  boot.kernelModules = [ "ec_sys" ];
+  boot.kernelModules = [
+    "msi-ec"
+    "ec_sys"
+  ];
   boot.kernelParams = [ "ec_sys.write_support=1" ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.msi-ec ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.justin = {
