@@ -86,6 +86,7 @@
     # uxplay
     # avahi
     # vdhcoapp
+    calibre
   ];
   programs.home-manager.enable = true;
   # This value determines the Home Manager release that your configuration is
