@@ -5,7 +5,7 @@
 }:
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
   imports = [
     ./hardware-configuration.nix
   ]
@@ -24,6 +24,8 @@
     ratbagd
   ]);
 
+  hardware.microsoft-surface.kernelVersion = "stable";
+  
   networking.hostName = "comet"; # Define your hostname.
   networking.hostId = "646ff2ab";
 
