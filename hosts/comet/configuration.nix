@@ -8,6 +8,8 @@
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   imports = [
     ./hardware-configuration.nix
+    inputs.nixos-hardware.nixosModules.microsoft-surface-common
+
   ]
   ++ (with inputs.self.nixosModules; [
     essential
@@ -25,7 +27,9 @@
   ]);
 
   hardware.microsoft-surface.kernelVersion = "stable";
-  
+  # services.iptsd.enable = true;
+  # microsoft-surface.surface-control.enable = true;
+
   networking.hostName = "comet"; # Define your hostname.
   networking.hostId = "646ff2ab";
 

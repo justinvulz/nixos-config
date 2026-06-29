@@ -87,7 +87,6 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/comet/configuration.nix
-            inputs.nixos-hardware.nixosModules.microsoft-surface-common
           ];
         };
 

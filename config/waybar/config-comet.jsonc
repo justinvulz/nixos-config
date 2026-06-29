@@ -18,6 +18,8 @@
 	  "modules-center": ["clock"],
 
 	  "modules-right": [
+	  	"battery",
+	  	"custom/space",
 	    "bluetooth",
 		  "custom/space",
 	    "network",
