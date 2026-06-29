@@ -95,7 +95,16 @@
       };
 
       # Enable touchpad support (enabled default in most desktopManager).
-      services.libinput.enable = true;
+      services.libinput = {
+        enable = true;
+        # Touchpad gestures and clicking
+        touchpad.tapping = true;
+        touchpad.naturalScrolling = true;
+        touchpad.disableWhileTyping = true;
+
+        # Advanced pointer acceleration
+        touchpad.accelProfile = "adaptive"; # or "flat"
+      };
 
       # uninstall the nixos documentation
       documentation.nixos.enable = false;

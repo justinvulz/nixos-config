@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }:
 {
@@ -29,6 +30,9 @@
     # claude-code
     # gemini-cli
   ]);
+  programs.waybar.settings = lib.mkForce (
+    builtins.fromJSON (builtins.readFile ./../../config/waybar/config-comet.jsonc)
+  );
   # programs.vellum.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
