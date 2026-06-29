@@ -33,6 +33,8 @@
   programs.waybar.settings = lib.mkForce (
     builtins.fromJSON (builtins.readFile ./../../config/waybar/config-comet.jsonc)
   );
+  xdg.configFile."niri/current-wallpaper".source = ./../../config/wallpaper/snow.jpg;
+
   # programs.vellum.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

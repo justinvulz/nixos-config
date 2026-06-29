@@ -3,6 +3,7 @@
     {
       inputs,
       pkgs,
+      lib,
       ...
     }:
     {
@@ -25,7 +26,8 @@
       };
 
       xdg.configFile."niri/config.kdl".source = ../../config/niri/config.kdl;
-      xdg.configFile."niri/current-wallpaper".source = ../../config/wallpaper/p5precure_ruruka.jpg;
+      xdg.configFile."niri/current-wallpaper".source =
+        lib.mkDefault ../../config/wallpaper/p5precure_ruruka.jpg;
 
       xdg.portal = {
         enable = true;
