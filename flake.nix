@@ -22,6 +22,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # vellum = {
     #   url = "github:justinvulz/vellum";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -78,6 +82,14 @@
             ./hosts/quasar/configuration.nix
           ];
         };
+        comet = lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/comet/configuration.nix
+          ];
+        };
+
       };
 
       homeConfigurations = {
@@ -93,6 +105,13 @@
           extraSpecialArgs = { inherit inputs; };
           modules = [
             ./hosts/mars/home.nix
+          ];
+        };
+        "justin@comet" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/comet/home.nix
           ];
         };
       };

@@ -3,6 +3,7 @@
     {
       inputs,
       pkgs,
+      lib,
       ...
     }:
     {
@@ -25,6 +26,9 @@
       };
 
       xdg.configFile."niri/config.kdl".source = ../../config/niri/config.kdl;
+      xdg.configFile."niri/current-wallpaper".source =
+        lib.mkDefault ../../config/wallpaper/p5precure_ruruka.jpg;
+
       xdg.portal = {
         enable = true;
         config.common.default = [ "gnome" ];
@@ -39,16 +43,7 @@
           dynamic_background_opacity = true;
 
         };
-
       };
-
-      # programs.alacritty = {
-      #   enable = true;
-      #   settings = lib.mkForce {
-      #     window.decorations = "None";
-      #   };
-      # };
-      # wallpaper
 
       home.packages = with pkgs; [
         xwayland-satellite
