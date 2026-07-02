@@ -9,6 +9,7 @@
   imports = [
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.microsoft-surface-common
+    inputs.auto-cpufreq.nixosModules.default
 
   ]
   ++ (with inputs.self.nixosModules; [
@@ -27,6 +28,21 @@
   ]);
 
   hardware.microsoft-surface.kernelVersion = "stable";
+  programs.auto-cpufreq.enable = true;
+
+  # optionally, you can configure your auto-cpufreq settings, if you have any
+  programs.auto-cpufreq.settings = {
+    charger = {
+      governor = "performance";
+      turbo = "auto";
+    };
+    battery = {
+      governor = "powersave";
+      energy_perf_bias = "power";
+      turbo = "auto";
+    };
+  };
+
   # services.iptsd.enable = true;
   # microsoft-surface.surface-control.enable = true;
 
