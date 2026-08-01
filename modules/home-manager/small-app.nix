@@ -57,4 +57,10 @@
         };
       };
     };
+  tola =
+    { pkgs, inputs, ... }:
+    {
+      home.packages = [ inputs.tola.packages.${pkgs.system}.x86_64-linux ];
+
+    };
 }

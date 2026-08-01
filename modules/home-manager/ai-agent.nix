@@ -12,13 +12,22 @@
       };
     };
   claude-code =
-    { pkgs, lib, ... }:
     {
-      home.packages = with pkgs; [ claude-code ];
+      pkgs,
+      lib,
+      pkgs-uu,
+      ...
+    }:
+    {
+      home.packages = with pkgs-uu; [ claude-code ];
 
     };
   gemini-cli =
-    { pkgs, lib, ... }:
+    {
+      pkgs,
+      lib,
+      ...
+    }:
     {
 
       home.packages = with pkgs; [ antigravity-cli ];

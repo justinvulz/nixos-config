@@ -1,7 +1,15 @@
-output "HDMI-A-1" {
-    mode "2560x1440@144.000"
-    
+// output "HDMI-A-1" {
+//     mode "2560x1440@144.000"
+// }
+
+output "AU Optronics 0x479D Unknown" {
+ position x=0 y=0
 }
+output "Microstep MSI MP253 PC7H054600589" {
+ mode "1920x1080@99.999"    
+ position x=0 y=-1080
+}
+
 prefer-no-csd
 input {
     keyboard {

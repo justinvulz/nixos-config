@@ -21,4 +21,16 @@
       services.ratbagd.enable = true;
     };
 
+  cloudflare =
+    { pkgs, ... }:
+    {
+      services.cloudflare-warp.enable = true;
+    };
+
+  rustdesk = {
+    services.rustdesk-server = {
+      enable = true;
+      openFirewall = true;
+    };
+  };
 }

@@ -1,7 +1,7 @@
 {
   pkgs,
   inputs,
-  config,
+  # config,
   ...
 }:
 
@@ -19,6 +19,9 @@
     docker
     fonts
     ratbagd
+    cloudflare
+    tola-cache
+    nbfc
   ]);
 
   # Bootloader.
@@ -32,7 +35,7 @@
     "ec_sys"
   ];
   boot.kernelParams = [ "ec_sys.write_support=1" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.msi-ec ];
+  # boot.extraModulePackages = [ config.boot.kernelPackages.msi-ec ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.justin = {

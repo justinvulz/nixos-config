@@ -4,6 +4,7 @@
   inputs = {
     # nixpkgs.url = "nixpkgs/nixos-24.05";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-uu.url = "github:nixos/nixpkgs/nixos-unstable";
     #nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
@@ -48,12 +49,18 @@
     #   url = "github:nbfc-linux/nbfc-linux";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
+
+    tola = {
+      url = "github:tola-ssg/tola-ssg/v0.7.1";
+    };
+
   };
 
   outputs =
     {
       self,
       nixpkgs,
+      nixpkgs-uu,
       home-manager,
       ...
     }@inputs:
@@ -61,6 +68,10 @@
       system = "x86_64-linux";
       lib = nixpkgs.lib;
       pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      pkgs-uu = import nixpkgs-uu {
         inherit system;
         config.allowUnfree = true;
       };
@@ -99,21 +110,30 @@
       homeConfigurations = {
         "justin@quasar" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit pkgs-uu;
+          };
           modules = [
             ./hosts/quasar/home.nix
           ];
         };
         "justin@mars" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit pkgs-uu;
+          };
           modules = [
             ./hosts/mars/home.nix
           ];
         };
         "justin@comet" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit pkgs-uu;
+          };
           modules = [
             ./hosts/comet/home.nix
           ];

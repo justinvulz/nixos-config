@@ -26,13 +26,15 @@
     stylix
     xdg
     # opencode
-    # claude-code
+    claude-code
     # gemini-cli
+    tola
+
   ]);
   # programs.vellum.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  gtk.gtk4.theme = null;
+  # gtk.gtk4.theme = null;
   home.username = "justin";
   home.homeDirectory = "/home/justin";
 
@@ -76,7 +78,6 @@
     # sonusmix
     # qpwgraph
     coppwr
-    # cloudflared
     pitivi # vedio editor
     prismlauncher # minecraft
     # element-desktop
@@ -86,6 +87,10 @@
     # uxplay
     # avahi
     # vdhcoapp
+    gnome-text-editor
+    gimp
+    # calibre
+
   ];
   programs.home-manager.enable = true;
   # This value determines the Home Manager release that your configuration is
