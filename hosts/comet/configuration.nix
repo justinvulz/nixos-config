@@ -15,6 +15,7 @@
   ++ (with inputs.self.nixosModules; [
     essential
 
+    cloudflare
     amddriver
     niri
     htop
