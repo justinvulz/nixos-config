@@ -17,7 +17,7 @@
     programming-language
     helix
     zellij
-    spicetify
+    spotify
     obs
     nushell
     zed
@@ -27,7 +27,7 @@
     stylix
     xdg
     # opencode
-    # claude-code
+    claude-code
     # gemini-cli
   ]);
   programs.waybar.settings = lib.mkForce (
