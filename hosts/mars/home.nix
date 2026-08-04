@@ -16,7 +16,6 @@
     programming-language
     helix
     zellij
-    spicetify
     obs
     nushell
     # zed
@@ -29,6 +28,7 @@
     claude-code
     # gemini-cli
     tola
+    spotify
 
   ]);
   # programs.vellum.enable = true;

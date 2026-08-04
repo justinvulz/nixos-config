@@ -19,6 +19,7 @@
       stylix.cursor.package = pkgs.bibata-cursors;
       stylix.cursor.name = "Bibata-Modern-Ice";
       stylix.cursor.size = 25;
+      home.pointerCursor.enable = true;
 
       # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml\n";
 
