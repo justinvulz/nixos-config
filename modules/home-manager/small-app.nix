@@ -63,4 +63,9 @@
       home.packages = [ inputs.tola.packages.${pkgs.system}.x86_64-linux ];
 
     };
+  miracast =
+    { pkgs, inputs, ... }:
+    {
+      home.packages = [ pkgs.gnome-network-displays ];
+    };
 }

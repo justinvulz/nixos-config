@@ -29,6 +29,7 @@
     # opencode
     claude-code
     # gemini-cli
+    miracast
   ]);
   programs.waybar.settings = lib.mkForce (
     builtins.fromJSON (builtins.readFile ./../../config/waybar/config-comet.jsonc)
@@ -38,7 +39,7 @@
   # programs.vellum.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  gtk.gtk4.theme = null;
+  # gtk.gtk4.theme = null;
   home.username = "justin";
   home.homeDirectory = "/home/justin";
 
@@ -49,6 +50,7 @@
     # audacity
     discord
     nethack
+    brightnessctl
     # octaveFull # matlab opensource alt
     # ncspot # spotify
     # spotify

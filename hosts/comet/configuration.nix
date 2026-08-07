@@ -26,6 +26,7 @@
     # i2p
     fonts
     ratbagd
+    avahi
   ]);
 
   hardware.microsoft-surface.kernelVersion = "stable";
