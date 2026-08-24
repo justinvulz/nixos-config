@@ -16,7 +16,7 @@
     programming-language
     helix
     zellij
-    spicetify
+    spotify
     obs
     nushell
     zed
@@ -27,12 +27,12 @@
     xdg
     # opencode
     claude-code
-    gemini-cli
+    # gemini-cli
   ]);
   # programs.vellum.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  gtk.gtk4.theme = null;
+  # gtk.gtk4.theme = null;
   home.username = "justin";
   home.homeDirectory = "/home/justin";
 
@@ -86,7 +86,7 @@
     # uxplay
     # avahi
     # vdhcoapp
-    calibre
+    gnome-text-editor
   ];
   programs.home-manager.enable = true;
   # This value determines the Home Manager release that your configuration is
