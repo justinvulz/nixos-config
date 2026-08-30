@@ -87,6 +87,10 @@
     # avahi
     # vdhcoapp
     gnome-text-editor
+    tola
+    joplin-desktop
+    rclone
+    taskwarrior3
   ];
   programs.home-manager.enable = true;
   # This value determines the Home Manager release that your configuration is

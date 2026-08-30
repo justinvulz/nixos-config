@@ -54,6 +54,7 @@
       url = "github:tola-ssg/tola-ssg/v0.7.1";
     };
 
+    ari-ime.url = "github:kaiyasi/Ari-IME";
   };
 
   outputs =

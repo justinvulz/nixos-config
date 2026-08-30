@@ -1,7 +1,13 @@
 {
   essential =
-    { config, pkgs, ... }:
     {
+      config,
+      pkgs,
+      inputs,
+      ...
+    }:
+    {
+      imports = [ inputs.ari-ime.nixosModules.default ];
       # virtual camera
       boot.extraModulePackages = with config.boot.kernelPackages; [
         v4l2loopback
