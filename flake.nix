@@ -116,6 +116,7 @@
             inherit pkgs-uu;
           };
           modules = [
+            { nixpkgs.overlays = [ (import ./taskwarrior-overlay.nix) ]; }
             ./hosts/quasar/home.nix
           ];
         };
