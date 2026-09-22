@@ -22,6 +22,9 @@
     # i2p
     fonts
     ratbagd
+    nix-ld
+    cloudflare
+    keychron-patch
   ]);
 
   networking.hostName = "quasar"; # Define your hostname.

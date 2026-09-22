@@ -78,6 +78,7 @@ binds {
 
     Super+D { spawn "fuzzel"; }
     Super+Q { close-window; }
+    Super+O { toggle-overview;}
 
     Mod+J { focus-workspace-down; }
     Mod+K { focus-workspace-up; }
@@ -86,6 +87,7 @@ binds {
     Mod+F { toggle-windowed-fullscreen;}
 
     Mod+Shift+S { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy && wl-paste > ~/Picture/Screenshots/Screenshot-$(date +%F_%T).png | dunstify \"Screenshot of the region taken\" -t 1000 # screenshot of a region"; }
+
 
 
 }
