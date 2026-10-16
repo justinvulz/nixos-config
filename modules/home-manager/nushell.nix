@@ -25,7 +25,8 @@
             zlj = "zellij";
             cls = "clear";
             nix-shell = "nix-shell --run nu";
-            "nix develop" = "nix develop --command nu";
+            tx = "gnome-text-editor";
+            ud = "udisksctl";
 
           };
         };

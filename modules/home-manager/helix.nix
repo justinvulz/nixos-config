@@ -98,6 +98,14 @@
                 unit = "    ";
               };
             }
+            {
+              name = "kotlin";
+              indent = {
+                tab-width = 4;
+                unit = "    ";
+              };
+            }
+
           ];
           language-server = {
             lean = {

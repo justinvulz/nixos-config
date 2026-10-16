@@ -43,8 +43,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland";
-
     # nbfc-linux = {
     #   url = "github:nbfc-linux/nbfc-linux";
     #   inputs.nixpkgs.follows = "nixpkgs";

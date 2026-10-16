@@ -125,6 +125,7 @@
       nixpkgs.config.allowUnfree = true;
 
       services.udisks2.enable = true;
+      nix.settings.trusted-users = [ "justin" ];
       nix.settings.experimental-features = [
         "nix-command"
         "flakes"
