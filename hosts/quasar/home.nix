@@ -40,6 +40,7 @@
 
     # pciutils
     # tuxguitar
+    ffmpeg
     audacity
     discord
     nethack

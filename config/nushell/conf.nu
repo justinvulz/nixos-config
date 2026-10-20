@@ -1,12 +1,6 @@
 
-let carapace_completer = {|spans|
-  carapace $spans.0 nushell ...$spans | from json
-}
-let multiple_completers = {|spans|
-    match $spans.0 {
-        zellij => $"nu-complete zellij"
-        _ => $carapace_completer
-    } | do $in $spans
+let carapace_completer = {|place|
+  carapace $place.command.0  nushell ...$place.command | from json
 }
 
 
@@ -22,7 +16,7 @@ $env.config = {
       enable: true 
       # set to lower can improve completion performance at the cost of omitting some options
       max_results: 100 
-      completer: $multiple_completers # check 'carapace_completer' 
+      completer: $carapace_completer # check 'carapace_completer' 
     }
   }
 } 
