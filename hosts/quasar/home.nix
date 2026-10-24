@@ -42,7 +42,7 @@
     # tuxguitar
     ffmpeg
     audacity
-    discord
+    discord-ptb
     nethack
     # octaveFull # matlab opensource alt
     # ncspot # spotify

@@ -6,8 +6,11 @@
       inputs,
       ...
     }:
+    let
+      zc-ime = pkgs.zc-ime.override { withModels = true; };
+    in
     {
-      imports = [ inputs.ari-ime.nixosModules.default ];
+      nixpkgs.overlays = [ inputs.zc-ime.overlays.default ];
       # virtual camera
       boot.extraModulePackages = with config.boot.kernelPackages; [
         v4l2loopback
@@ -64,13 +67,18 @@
         type = "fcitx5";
         enable = true;
         fcitx5.waylandFrontend = true;
-        fcitx5.addons = with pkgs; [
-          rime-data
-          fcitx5-rime
-          fcitx5-gtk
-          fcitx5-nord
-        ];
+        fcitx5.addons =
+          (with pkgs; [
+            rime-data
+            fcitx5-rime
+            fcitx5-gtk
+            fcitx5-nord
+          ])
+          ++ [
+            zc-ime
+          ];
       };
+      environment.systemPackages = [ zc-ime ];
 
       # Configure keymap in X11
       services.xserver.xkb = {
