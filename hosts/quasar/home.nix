@@ -41,7 +41,7 @@
     # pciutils
     # tuxguitar
     ffmpeg
-    audacity
+    # audacity
     discord-ptb
     nethack
     # octaveFull # matlab opensource alt
@@ -68,7 +68,7 @@
     wl-clipboard # clipboard
 
     # onlyoffice-bin
-    libreoffice-qt6-fresh
+    libreoffice-qt
     # s-tui
     feh
     # imv
